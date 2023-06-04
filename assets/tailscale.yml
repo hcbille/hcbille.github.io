@@ -72,7 +72,7 @@ services:
         url: "http://newserver:9091"
         
       - name: "SSH to server"
-        icon: "fa-duotone fa-link"
+        icon: "fa fa-link"
         subtitle: "Downloader"
         tag: "app"
         url: "ssh://hc@newserver"
