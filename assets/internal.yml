@@ -65,3 +65,9 @@ services:
         tag: "app"
         url: "http://192.168.169.139:7878"
         
+      - name: "Transmission"
+        logo: "assets/icons/png/transmission.png"
+        subtitle: "Downloader"
+        tag: "app"
+        url: "http://192.168.169.139:9091"
+        
