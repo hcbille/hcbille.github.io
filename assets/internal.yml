@@ -1,0 +1,67 @@
+---
+# Additional page configuration
+
+# Additional configurations are loaded using its file name, minus the extension, as an anchor (https://<mydashboad>#<config>). 
+# `config.yml` is still used as a base configuration, and all values here will overwrite it, so you don't have to re-defined everything
+
+
+subtitle: "internal services"
+
+# This overwrites message config. Setting it to empty to remove message from this page and keep it only in the main one:
+message: ~
+
+# as we want to include a differente link here (so we can get back to home page), we need to replicate all links or they will be revome when overwriting the links field:
+links:
+  - name: "Home"
+    icon: "fas fa-home"
+    url: "#"
+
+services:
+  - name: "Services"
+    icon: "fas fa-cloud"
+    items:
+      - name: "wg-easy"
+        logo: "assets/icons/png/wireguard.png"
+        subtitle: "Wireguard"
+        tag: "app"
+        url: "http://192.168.169.139:51821/"
+
+      - name: "HomeAssistant"
+        logo: "assets/icons/png/home-assistant.png"
+        subtitle: "Home Automation"
+        tag: "app"
+        url: "http://192.168.169.139:8123/"
+      
+      - name: "Duplicati"
+        logo: "assets/icons/png/duplicati.png"
+        subtitle: "Backup"
+        tag: "app"
+        url: "http://192.168.169.139:8200/"
+
+  - name: "*Arr Stack"
+    icon: "fas fa-cloud"
+    items:
+      - name: "Prowlarr"
+        logo: "assets/icons/png/prowlarr.png"
+        subtitle: "tracker manager"
+        tag: "app"
+        url: "http://192.168.169.139:9696"
+
+      - name: "Bazarr"
+        logo: "assets/icons/png/bazarr.png"
+        subtitle: "Subtitles"
+        tag: "app"
+        url: "http://192.168.169.139:6767"
+      
+      - name: "Sonarr"
+        logo: "assets/icons/png/sonarr.png"
+        subtitle: "Series manager"
+        tag: "app"
+        url: "http://192.168.169.139:8989"
+
+      - name: "Radarr"
+        logo: "assets/icons/png/radarr.png"
+        subtitle: "Movies manager"
+        tag: "app"
+        url: "http://192.168.169.139:7878"
+        
