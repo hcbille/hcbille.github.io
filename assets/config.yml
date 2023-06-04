@@ -51,6 +51,10 @@ links:
     icon: "fas fa-file-alt"
     url: "#internal" 
 
+  - name: "Tailscale!"
+    icon: "fa-solid fa-scale-unbalanced"
+    url: "#tailscale" 
+
   - name: "Portainer"
     logo: "assets/icons/png/portainer.png"
     url: "https://portainer.hcbille.se" 
