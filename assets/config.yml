@@ -45,12 +45,6 @@ colors:
 # links: [] # Allows for navbar (dark mode, layout, and search) without any links
 links:
 
-  # this will link to a second homer page that will load config from additional-page.yml and keep default config values as in config.yml file
-  # see url field and assets/additional-page.yml.dist used in this example:
-  - name: "Internal!"
-    icon: "fas fa-file-alt"
-    url: "#internal" 
-
   - name: "Tailscale!"
     icon: "fa-solid fa-scale-unbalanced"
     url: "#tailscale" 
@@ -89,6 +83,12 @@ services:
         logo: "assets/icons/png/freshrss.png"
         subtitle: "Library"
         url: "https://freshrss.hcbille.se/"
+
+      - name: "HomeAssistant"
+        logo: "assets/icons/png/home-assistant.png"
+        subtitle: "Library"
+        url: "https://homeassistant.hcbille.se/"
+
 
   - name: "Tools"
     icon: "fas fa-wrench"
