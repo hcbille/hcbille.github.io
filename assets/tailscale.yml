@@ -16,6 +16,10 @@ links:
     icon: "fas fa-home"
     url: "#"
 
+  - name: "Portainer"
+    logo: "assets/icons/png/portainer.png"
+    url: "https://newserver:9443/" 
+
 services:
   - name: "Services"
     icon: "fas fa-cloud"
