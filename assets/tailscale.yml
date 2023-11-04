@@ -30,12 +30,6 @@ services:
         tag: "app"
         url: "http://newserver:6969/"
 
-      - name: "HomeAssistant"
-        logo: "assets/icons/png/home-assistant.png"
-        subtitle: "Home Automation"
-        tag: "app"
-        url: "http://newserver:8123/"
-      
       - name: "Duplicati"
         logo: "assets/icons/png/duplicati.png"
         subtitle: "Backup"
@@ -59,18 +53,6 @@ services:
         subtitle: "Torrent"
         tag: "app"
         url: "http://newserver:9091/"
-
-      - name: "Mosquitto"
-        logo: "assets/icons/png/wireguard.png"
-        subtitle: "MQTT"
-        tag: "app"
-        url: "http://newserver:1883/"
-
-      - name: "Frigate"
-        logo: "assets/icons/png/home-assistant.png"
-        subtitle: "Camera AI"
-        tag: "app"
-        url: "http://newserver:5000/"
       
       - name: "Jellyfin"
         logo: "assets/icons/png/jellyfin.png"
@@ -95,12 +77,6 @@ services:
         subtitle: "Subtitle management"
         tag: "app"
         url: "http://newserver:6767/"
-      
-      - name: "tdarr"
-        logo: "assets/icons/png/tdarr.png"
-        subtitle: "Transcoding"
-        tag: "app"
-        url: "http://newserver:8265/"
 
       - name: "Jellyseerr"
         logo: "assets/icons/png/overseerr.png"
