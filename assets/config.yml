@@ -69,26 +69,10 @@ services:
         subtitle: "Request movies/series for Jellyfin"
         url: "https://jellyseerr.hcbille.se"
 
-      - name: "Calibre"
-        logo: "assets/icons/png/calibreweb.png"
-        subtitle: "Library"
-        url: "https://calibre.hcbille.se"
-
       - name: "Audiobookshelf"
         logo: "assets/icons/png/bookstack.png"
         subtitle: "Library"
         url: "https://audiobook.hcbille.se/"
-
-      - name: "FreshRSS"
-        logo: "assets/icons/png/freshrss.png"
-        subtitle: "Library"
-        url: "https://freshrss.hcbille.se/"
-
-      - name: "HomeAssistant"
-        logo: "assets/icons/png/home-assistant.png"
-        subtitle: "Library"
-        url: "https://homeassistant.hcbille.se/"
-
 
   - name: "Tools"
     icon: "fas fa-wrench"
@@ -102,9 +86,3 @@ services:
         icon: "fas fa-folder"
         subtitle: "Move files"
         url: "https://filebrowser.hcbille.se"
-
-      - name: "Calibre-db"
-        logo: "assets/icons/png/calibreweb.png"
-        subtitle: "Library-db"
-        url: "https://calibre-db.hcbille.se"
-      
