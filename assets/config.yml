@@ -73,16 +73,3 @@ services:
         logo: "assets/icons/png/bookstack.png"
         subtitle: "Library"
         url: "https://audiobook.hcbille.se/"
-
-  - name: "Tools"
-    icon: "fas fa-wrench"
-    items:
-      - name: "Code-server"
-        logo: "assets/icons/png/codeserver.png"
-        subtitle: "Cloud VSCode"
-        url: "https://code-server.hcbille.se"
-
-      - name: "Filebrowser"
-        icon: "fas fa-folder"
-        subtitle: "Move files"
-        url: "https://filebrowser.hcbille.se"
