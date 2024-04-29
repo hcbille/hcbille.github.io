@@ -73,10 +73,7 @@ services:
         logo: "assets/icons/png/bookstack.png"
         subtitle: "Library"
         url: "https://audiobook.hcbille.se/"
-
-
-
-services:
+        
   - name: "Tailscale"
     icon: "fas fa-cloud"
     items:
