@@ -21,14 +21,10 @@ links:
     url: "https://newserver:9443/" 
 
 services:
+
   - name: "Services"
     icon: "fas fa-cloud"
     items:
-      - name: "FileBroswer"
-        logo: "assets/icons/png/filebrowser.png"
-        subtitle: "Server-filebroswer"
-        tag: "app"
-        url: "http://newserver:6969/"
 
       - name: "Duplicati"
         logo: "assets/icons/png/duplicati.png"
@@ -36,12 +32,40 @@ services:
         tag: "app"
         url: "http://newserver:8200/"
       
-      - name: "VS-code"
-        logo: "assets/icons/png/codeserver.png"
-        subtitle: "VS-Code"
+      - name: "Bazarr"
+        logo: "assets/icons/png/bazarr.png"
+        subtitle: "Subtitle management"
         tag: "app"
-        url: "http://newserver:8443/"
+        url: "http://newserver:6767/"
+      
+      - name: "Calibre"
+        logo: "assets/icons/png/calibreweb.png"
+        subtitle: "Book Server"
+        tag: "app"
+        url: "http://newserver:4545/"
 
+      - name: "Calibre-Web"
+        logo: "assets/icons/png/calibreweb.png"
+        subtitle: "Book-management"
+        tag: "app"
+        url: "http://newserver:8083/"
+
+      - name: "FreshRSS"
+        logo: "assets/icons/png/freshrss.png"
+        subtitle: "RSS Broker"
+        tag: "app"
+        url: "http://newserver:6043/"
+
+      - name: "HomeAssistant"
+        logo: "assets/icons/png/home-assistant.png"
+        subtitle: "Home automation"
+        tag: "app"
+        url: "http://homeassistant:8123/"
+
+
+ - name: "-Arr stack"
+    icon: "fas fa-cloud"
+    items:
       - name: "Prowlarr"
         logo: "assets/icons/png/prowlarr.png"
         subtitle: "Torrent management"
@@ -53,13 +77,7 @@ services:
         subtitle: "Torrent"
         tag: "app"
         url: "http://newserver:9091/"
-      
-      - name: "Jellyfin"
-        logo: "assets/icons/png/jellyfin.png"
-        subtitle: "Netflix"
-        tag: "app"
-        url: "http://newserver:8096/"
-      
+
       - name: "Sonarr"
         logo: "assets/icons/png/sonarr.png"
         subtitle: "Series Management"
@@ -77,33 +95,3 @@ services:
         subtitle: "Subtitle management"
         tag: "app"
         url: "http://newserver:6767/"
-
-      - name: "Jellyseerr"
-        logo: "assets/icons/png/overseerr.png"
-        subtitle: "Requests for Jellyfin"
-        tag: "app"
-        url: "http://newserver:5055/"
-      
-      - name: "Calibre"
-        logo: "assets/icons/png/calibreweb.png"
-        subtitle: "Book Server"
-        tag: "app"
-        url: "http://newserver:4545/"
-
-      - name: "Calibre-Web"
-        logo: "assets/icons/png/calibreweb.png"
-        subtitle: "Book-management"
-        tag: "app"
-        url: "http://newserver:8083/"
-
-      - name: "Audiobookshelf"
-        logo: "assets/icons/png/bookstack.png"
-        subtitle: "Audiobook Management"
-        tag: "app"
-        url: "http://newserver:6789/"
-      
-      - name: "FreshRSS"
-        logo: "assets/icons/png/freshrss.png"
-        subtitle: "RSS Broker"
-        tag: "app"
-        url: "http://newserver:6043/"
