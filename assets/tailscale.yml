@@ -25,7 +25,6 @@ services:
   - name: "Services"
     icon: "fas fa-cloud"
     items:
-
       - name: "Duplicati"
         logo: "assets/icons/png/duplicati.png"
         subtitle: "Backup"
@@ -55,15 +54,14 @@ services:
         subtitle: "RSS Broker"
         tag: "app"
         url: "http://newserver:6043/"
-
+        
       - name: "HomeAssistant"
         logo: "assets/icons/png/home-assistant.png"
         subtitle: "Home automation"
         tag: "app"
         url: "http://homeassistant:8123/"
 
-
- - name: "-Arr stack"
+  - name: "-Arr stack"
     icon: "fas fa-cloud"
     items:
       - name: "Prowlarr"
