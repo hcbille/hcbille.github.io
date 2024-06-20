@@ -71,8 +71,22 @@ services:
 
       - name: "Audiobookshelf"
         logo: "assets/icons/png/bookstack.png"
-        subtitle: "Library"
+        subtitle: "Podcasts"
         url: "https://audiobook.hcbille.se/"
+
+      - name: "Calibre-Web"
+        logo: "assets/icons/png/calibreweb.png"
+        subtitle: "Book-management"
+        tag: "books"
+        url: "https://calibre-web.hcbille.se/"
+
+      - name: "Kavita"
+        logo: "assets/icons/png/kavita.png"
+        subtitle: "Book-reader"
+        tag: "books"
+        url: "https://calibre-web.hcbille.se/"
+
+
         
   - name: "Tailscale"
     icon: "fas fa-cloud"
@@ -80,11 +94,9 @@ services:
       - name: "FileBroswer"
         logo: "assets/icons/png/filebrowser.png"
         subtitle: "Server-filebroswer"
-        tag: "app"
         url: "http://newserver:6969/"
       
       - name: "VS-code"
         logo: "assets/icons/png/codeserver.png"
         subtitle: "VS-Code"
-        tag: "app"
         url: "http://newserver:8443/"
