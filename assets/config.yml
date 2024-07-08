@@ -52,6 +52,11 @@ links:
   - name: "Portainer"
     logo: "assets/icons/png/portainer.png"
     url: "https://portainer.hcbille.se" 
+
+  - name: "Proxmox"
+    logo: "assets/icons/png/proxmox.png"
+    url: "https://proxmox:8006" 
+    
 # Services
 # First level array represent a group.
 # Leave only a "items" key if not using group (group name, icon & tagstyle are optional, section separation will not be displayed).
