@@ -76,11 +76,11 @@ services:
         tag: "arr"
         url: "http://newserver:6767/"
 
-  - name: "Proxmox"
-    icon: "fas fa-cloud"
-    items:
-      - name: "Portainer"
-        logo: "assets/icons/png/duplicati.png"
-        subtitle: "Backup"
-        tag: "app"
-        url: "http://proxmox-ubuntu:9443/"
+  # - name: "Proxmox"
+  #   icon: "fas fa-cloud"
+  #   items:
+  #     - name: "Portainer"
+  #       logo: "assets/icons/png/duplicati.png"
+  #       subtitle: "Backup"
+  #       tag: "app"
+  #       url: "http://proxmox-ubuntu:9443/"
