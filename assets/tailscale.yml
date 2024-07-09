@@ -41,7 +41,7 @@ services:
         logo: "assets/icons/png/home-assistant.png"
         subtitle: "Home automation"
         tag: "app"
-        url: "http://homeassistant:8123/"
+        url: "http://proxmox-homeassistant:8123/"
 
   - name: "-Arr stack"
     icon: "fas fa-cloud"
