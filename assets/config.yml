@@ -89,7 +89,7 @@ services:
         logo: "assets/icons/png/kavita.png"
         subtitle: "Book-reader"
         tag: "books"
-        url: "https://calibre-web.hcbille.se/"
+        url: "https://kavita.hcbille.se/"
 
 
         
