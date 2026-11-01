@@ -1,4 +1,4 @@
-# HC Bille Madsen (she/her)
+# HC Bille (she/her)
 
 Systems Architect · Stockholm, Sweden
 
