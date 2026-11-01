@@ -1,0 +1,54 @@
+/* Solarized Dark theme for WebTUI. Dark only, on purpose. */
+
+:root {
+  --sol-base03: #002b36;
+  --sol-base02: #073642;
+  --sol-base01: #586e75;
+  --sol-base00: #657b83;
+  --sol-base0: #839496;
+  --sol-base1: #93a1a1;
+  --sol-base2: #eee8d5;
+  --sol-base3: #fdf6e3;
+
+  --yellow: #b58900;
+  --orange: #cb4b16;
+  --red: #dc322f;
+  --magenta: #d33682;
+  --violet: #6c71c4;
+  --blue: #268bd2;
+  --cyan: #2aa198;
+  --green: #859900;
+
+  /* Accents lightened toward base2 just enough for 4.5:1 text contrast.
+     "-text" variants are for the main background (base03),
+     "-bar" variants for the tab bar, status line and palette (base02). */
+  --blue-text: #3e96d2;
+  --orange-text: #d4754a;
+  --magenta-text: #db6899;
+  --violet-text: #9496c9;
+  --blue-bar: #56a1d3;
+  --yellow-bar: #bc951c;
+  --cyan-bar: #42aa9f;
+
+  /* Trans flag colors for the logo */
+  --trans-blue: #5bcefa;
+  --trans-pink: #f5a9b8;
+  --trans-white: #ffffff;
+
+  --background0: var(--sol-base03);
+  --background1: var(--sol-base02);
+  --background2: var(--sol-base01);
+  --background3: var(--sol-base00);
+  --foreground0: var(--sol-base1);
+  --foreground1: var(--sol-base0);
+  --foreground2: var(--sol-base01);
+  --box-border-color: var(--sol-base01);
+
+  --font-family: "Cousine", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-size: 14px;
+  --line-height: 1.55;
+  --font-weight-bold: 700;
+  --font-weight-normal: 400;
+
+  color-scheme: dark;
+}

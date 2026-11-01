@@ -1,18 +1,289 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="assets/icons/favicon.ico" />
-    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" sizes="180x180">
-    <link rel="mask-icon" href="assets/icons/logo.svg">
-    <a rel="me" href="https://tech.lgbt/@hcbille">Mastodon</a>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
-    <title>Homer</title>
-    <script type="module" crossorigin src="./resources/index.868de8fa.js"></script>
-    <link rel="stylesheet" href="./resources/index.8b54b14d.css">
-  <link rel="manifest" href="./assets/manifest.json" crossorigin="use-credentials"><script id="vite-plugin-pwa:register-sw" src="./registerSW.js"></script></head>
-  <body>
-    <div id="app-mount"></div>
-    
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HC Bille Madsen · Systems Architect</title>
+  <meta name="description" content="HC Bille Madsen, Systems Architect in Stockholm. Google Workspace, identity and endpoint platforms for up to 9,000 users.">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://hcbille.se/">
+  <!-- Link previews (LinkedIn, Slack, Mastodon…) -->
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://hcbille.se/">
+  <meta property="og:site_name" content="hcbille.se">
+  <meta property="og:title" content="HC Bille Madsen · Systems Architect">
+  <meta property="og:description" content="Systems Architect in Stockholm. Google Workspace, identity and endpoint platforms for up to 9,000 users.">
+  <meta property="og:image" content="https://hcbille.se/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Terminal-style card: HC Bille Madsen, Systems Architect, Stockholm, Sweden">
+  <meta property="profile:first_name" content="HC">
+  <meta property="profile:last_name" content="Bille Madsen">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "HC Bille Madsen",
+      "jobTitle": "Systems Architect",
+      "url": "https://hcbille.se/",
+      "email": "mailto:hcbille@gmail.com",
+      "address": { "@type": "PostalAddress", "addressLocality": "Stockholm", "addressCountry": "SE" },
+      "sameAs": ["https://github.com/hcbille", "https://www.linkedin.com/in/hcbille", "https://tech.lgbt/@hcbille"]
+    }
+  </script>
+  <link rel="me" href="https://tech.lgbt/@hcbille">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cousine:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@webtui/css@0.1.10/dist/base.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@webtui/css@0.1.10/dist/components/typography.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@webtui/css@0.1.10/dist/components/badge.css">
+  <link rel="stylesheet" href="solarized.css?v=14">
+  <link rel="stylesheet" href="style.css?v=14">
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+  <script src="app.js?v=14" defer></script>
+</head>
+<body>
+<div class="app">
+
+  <nav class="tabs" aria-label="Sections">
+    <button type="button" class="menu" id="menu" aria-label="Open command menu" aria-haspopup="dialog" aria-expanded="false" aria-controls="palette">[≡ <span id="menu-pos">1/6</span>]</button>
+    <div class="tab-list">
+      <a href="#overview" data-tab="overview">~ overview</a>
+      <a href="#about" data-tab="about">about.md</a>
+      <a href="#now" data-tab="now">now.md</a>
+      <a href="#experience" data-tab="experience">experience.md</a>
+      <a href="#projects" data-tab="projects">projects.md</a>
+      <a href="#skills" data-tab="skills">skills.md</a>
+    </div>
+    <span class="spacer"></span>
+    <span class="clock" id="clock" aria-label="Time in Stockholm"></span>
+  </nav>
+
+  <!-- Only shown when printing -->
+  <header class="print-head">
+    <div>
+      <h1>HC Bille Madsen</h1>
+      <p>Systems Architect · she/her · Stockholm, Sweden</p>
+    </div>
+    <p>hcbille@gmail.com<br>+46 72 052 0862<br>github.com/hcbille<br>linkedin.com/in/hcbille<br>hcbille.se</p>
+  </header>
+
+  <main>
+
+    <section id="overview" data-section aria-label="Overview">
+      <div class="grid">
+        <div class="box fetch">
+          <a class="label" href="#about">about.md →</a>
+          <pre class="logo" aria-hidden="true"><span class="blue">  omyyyoo//...</span>
+<span class="blue">  dMhyyhhNNNNMMMNN/</span>
+<span class="blue">  MM`<i>:</i><i>`</i><i>`</i><i>/</i><i>/</i><i>/</i><i>/</i><i>+</i><i>+</i><i>+</i><i>+</i>NM`<i>:</i></span>
+<span class="blue"> .MN<i>o</i>          .MM<i>o</i><i>`</i></span>
+<span class="pink"> sMh<i>o</i>     ...  +Mh<i>o</i></span>
+<span class="pink"> dM+<i>+</i>     yMMMMMMNmmyyooo//.</span>
+<span class="pink"> NM`<i>-</i>     NMMMMMMy//yyhhhNMM+<i>.</i></span>
+<span class="white">.MMyyyoo/.MMMMMMM<i>o</i><i>`</i>  <i>`</i><i>`</i><i>`</i><i>/</i><i>/</i>MM<i>o</i><i>-</i></span>
+<span class="white">`//yyyhhNNMMMMMMh<i>o</i>       +Mh<i>o</i></span>
+<span class="white">    <i>`</i><i>`</i><i>`</i><i>/</i><i>/</i>yMs<i>o</i><i>+</i><i>+</i>``<i>+</i>       sMh<i>+</i></span>
+<span class="pink">         NM`<i>:</i>            dM+<i>:</i></span>
+<span class="pink">        .MM<i>o</i><i>`</i>            MM`<i>-</i></span>
+<span class="pink">        +Mh.            .MN<i>o</i></span>
+<span class="blue">        sNNNMMMNNmmyyoooyMh<i>o</i></span>
+<span class="blue">         <i>`</i><i>+</i><i>+</i><i>+</i><i>+</i>``///yyhhhNN+<i>+</i></span>
+<span class="blue">                    <i>`</i><i>`</i><i>`</i><i>/</i><i>/</i><i>/</i><i>+</i><i>`</i></span></pre>
+          <dl>
+            <div class="who"><dt><b>root</b><span>@</span><b>hcbille</b></dt></div>
+            <div class="rule" aria-hidden="true"><dd>────────────</dd></div>
+            <div><dt>Name</dt><dd>HC Bille Madsen</dd></div>
+            <div><dt>Pronouns</dt><dd>She/Her</dd></div>
+            <div><dt>Role</dt><dd>Systems Architect</dd></div>
+            <div><dt>Host</dt><dd>Arrive</dd></div>
+            <div><dt>Location</dt><dd>Stockholm, Sweden</dd></div>
+            <div><dt>Uptime</dt><dd><span class="uptime green">9y</span> in Tech</dd></div>
+            <div><dt>Users</dt><dd>9,000 at peak</dd></div>
+            <div><dt>Packages</dt><dd>Google Workspace, Slack, Okta, Claude</dd></div>
+            <div><dt>Theme</dt><dd>Solarized Dark</dd></div>
+            <div class="swatches" aria-hidden="true">
+              <!-- Top: the colors the site uses. Bottom: Solarized's greys, dark to light, like a terminal's bright row -->
+              <dd><i style="--c: var(--sol-base02)"></i><i style="--c: var(--yellow)"></i><i style="--c: var(--orange)"></i><i style="--c: var(--magenta)"></i><i style="--c: var(--violet)"></i><i style="--c: var(--blue)"></i><i style="--c: var(--cyan)"></i><i style="--c: var(--green)"></i></dd>
+              <dd><i style="--c: var(--sol-base03)"></i><i style="--c: var(--sol-base02)"></i><i style="--c: var(--sol-base01)"></i><i style="--c: var(--sol-base00)"></i><i style="--c: var(--sol-base0)"></i><i style="--c: var(--sol-base1)"></i><i style="--c: var(--sol-base2)"></i><i style="--c: var(--sol-base3)"></i></dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="row">
+          <div class="box">
+            <a class="label" href="#experience">experience.md →</a>
+            <ul class="jobs">
+              <li><b>Lead Systems Engineer</b><span class="when">2024–now</span><br><span class="cyan">Arrive</span></li>
+              <li><b>TechOps Automation Engineer</b><span class="when">2023–24</span><br><span class="cyan">Instabee</span></li>
+              <li><b>Senior Efficiency Engineer</b><span class="when">2021–23</span><br><span class="cyan">Klarna</span></li>
+            </ul>
+            <p class="dim">+ Nordward Group, Bonnier News</p>
+          </div>
+          <div class="box contact-box">
+            <span class="label">contact</span>
+            <dl class="contact">
+              <div><dt>mail</dt><dd><a href="mailto:hcbille@gmail.com">hcbille@gmail.com</a></dd></div>
+              <div><dt>tel</dt><dd><a href="tel:+46720520862">+46 72 052 0862</a></dd></div>
+              <div><dt>gh</dt><dd><a href="https://github.com/hcbille">github.com/hcbille</a></dd></div>
+              <div><dt>in</dt><dd><a href="https://www.linkedin.com/in/hcbille">linkedin.com/in/hcbille</a></dd></div>
+              <div><dt>masto</dt><dd><a rel="me" href="https://tech.lgbt/@hcbille">@hcbille@tech.lgbt</a></dd></div>
+            </dl>
+            <p class="downloads"><a href="resume.pdf" download>resume.pdf ↓</a> <a href="resume.md" download>resume.md ↓</a></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="box">
+            <a class="label" href="#now">now.md →</a>
+            <ul class="prs" data-prs="3">
+              <li><a href="https://github.com/pauljoda/Crest/pull/745"><span class="yellow">#745</span> <span class="title">Stop Device.Shows reading the session under the device lock</span> <span class="repo">- pauljoda/Crest</span></a></li>
+              <li><a href="https://github.com/pauljoda/Crest/pull/663"><span class="yellow">#663</span> <span class="title">Spell imported IP address hosts as a page's origin does</span> <span class="repo">- pauljoda/Crest</span></a></li>
+              <li><a href="https://github.com/pauljoda/Crest/pull/662"><span class="yellow">#662</span> <span class="title">Refuse imported passwords whose bracketed host is not an IPv6 address</span> <span class="repo">- pauljoda/Crest</span></a></li>
+            </ul>
+            <p class="dim">reading · Public Access Afterworld</p>
+          </div>
+          <div class="box">
+            <a class="label" href="#projects">projects.md →</a>
+            <p><span class="cyan">crest</span> <span class="dim"><span data-stars="pauljoda/Crest">★1,000+</span> · <span data-merged="pauljoda/Crest">30</span> merged PRs</span></p>
+            <p><span class="cyan">inner-dialogue</span> <span class="dim"><span data-stars="ataglianetti/inner-dialogue">★100+</span> · <span data-merged="ataglianetti/inner-dialogue">2</span> merged PRs · 8 extensions</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" data-section class="doc">
+      <h1>About</h1>
+      <p class="blank web-only"></p>
+      <p class="web-only">I'm HC, a systems architect in Stockholm. For close to a decade I've built the parts of a company nobody notices when they work: logins, laptops, email, and the access rules that keep auditors happy.</p>
+      <p class="blank web-only"></p>
+      <p class="web-only">I've run Google Workspace for 9,000 people at Klarna and led tenant consolidations through acquisitions, most recently moving 2,300 Flowbird users into Arrive's Google Workspace without anyone losing a day.</p>
+      <p class="blank web-only"></p>
+      <p class="web-only">I'm drawn to places where IT is a strategic function, and more and more to customer- and solutions-facing engineering, where having sat on the customer side is the useful part.</p>
+      <p class="blank web-only"></p>
+      <p class="web-only">Off the clock I write Swift and C++ for an open-source browser, and I live in a terminal with Solarized on.</p>
+      <p class="blank web-only"></p>
+      <h2>Summary</h2>
+      <p>Systems Architect who has designed, built and run Google Workspace, identity and endpoint platforms for up to 9,000 users at Klarna, Arrive, Instabee and Bonnier News, and led tenant consolidations through acquisitions. Now moving toward solutions, customer and partner engineering, bringing the customer-side view of migrations, security and adoption. Hands-on with Okta, Entra ID, Jamf and Intune, and ships production code in Swift, C# and C++ (Chromium).</p>
+      <p class="tilde">~</p>
+    </section>
+
+    <section id="now" data-section class="doc">
+      <h1>Now</h1>
+      <p class="dim">updated 1 Nov 2026 · Stockholm</p>
+      <p class="blank"></p>
+      <h2>Working on</h2>
+      <p>Rebuilding hcbille.se as a terminal.</p>
+      <p class="blank"></p>
+      <h2>Public pull requests <span class="dim">· <span class="pr-count">45+</span> · live from GitHub</span></h2>
+      <ul class="prs prs-full" data-prs="8">
+        <li><a href="https://github.com/pauljoda/Crest/pull/745"><span is-="badge" class="st-open">open</span> <span class="yellow">#745</span> <span class="title">Stop Device.Shows reading the session under the device lock</span> <span class="repo">- pauljoda/Crest</span></a></li>
+        <li><a href="https://github.com/pauljoda/Crest/pull/728"><span is-="badge" class="st-open">open</span> <span class="yellow">#728</span> <span class="title">Choose where new tabs open</span> <span class="repo">- pauljoda/Crest</span></a></li>
+        <li><a href="https://github.com/pauljoda/Crest/pull/390"><span is-="badge" class="st-open">open</span> <span class="yellow">#390</span> <span class="title">Keep full-screen pages drawing as they enter and leave full screen</span> <span class="repo">- pauljoda/Crest</span></a></li>
+        <li><a href="https://github.com/pauljoda/Crest/pull/827"><span is-="badge" class="st-open">open</span> <span class="yellow">#827</span> <span class="title">Let a tab dragged on iOS drop onto a Space icon to move it</span> <span class="repo">- pauljoda/Crest</span></a></li>
+        <li><a href="https://github.com/pauljoda/Crest/pull/663"><span is-="badge" class="st-merged">merged</span> <span class="yellow">#663</span> <span class="title">Spell imported IP address hosts as a page's origin does</span> <span class="repo">- pauljoda/Crest</span></a></li>
+        <li><a href="https://github.com/pauljoda/Crest/pull/662"><span is-="badge" class="st-merged">merged</span> <span class="yellow">#662</span> <span class="title">Refuse imported passwords whose bracketed host is not an IPv6 address</span> <span class="repo">- pauljoda/Crest</span></a></li>
+        <li><a href="https://github.com/pauljoda/Crest/pull/651"><span is-="badge" class="st-merged">merged</span> <span class="yellow">#651</span> <span class="title">Keep imported passwords on the right site when the address has escapes</span> <span class="repo">- pauljoda/Crest</span></a></li>
+        <li><a href="https://github.com/pauljoda/Crest/pull/650"><span is-="badge" class="st-merged">merged</span> <span class="yellow">#650</span> <span class="title">Read back saved passwords for IPv6 addresses</span> <span class="repo">- pauljoda/Crest</span></a></li>
+      </ul>
+      <p><a href="https://github.com/search?q=author%3Ahcbille+type%3Apr&amp;type=pullrequests">→ all pull requests on GitHub</a></p>
+      <p class="blank"></p>
+      <h2>Reading</h2>
+      <ul>
+        <li><a href="https://summereternal.com/anthology">Summer Eternal Anthology, Volume One</a> <span class="dim">· Summer Eternal</span></li>
+        <li><a href="https://www.goodreads.com/book/show/244714079-public-access-afterworld">Public Access Afterworld</a> <span class="dim">· Jane Schoenbrun</span></li>
+      </ul>
+      <p class="tilde">~</p>
+    </section>
+
+    <section id="experience" data-section class="doc">
+      <h1>Experience</h1>
+      <p class="blank"></p>
+      <h2>Lead Systems Engineer · Arrive (formerly EasyPark) <span class="when">2024–present</span></h2>
+      <p>Owner of the Digital Workplace stack (Google Workspace, Slack) for 4,500+ users across 35 countries.</p>
+      <ul>
+        <li>Consolidated 2,300 Flowbird users into Arrive's Google Workspace tenant with no downtime by leading identity federation, domain and mail cutover (MX, SPF, DKIM, DMARC), and enablement for acquired admins and end users.</li>
+        <li>Supported SOC 2 and ISO 27001 compliance by owning access controls, audit evidence and policy enforcement across the IT stack.</li>
+      </ul>
+      <p class="blank"></p>
+      <h2>TechOps Automation Engineer · Instabee <span class="when">2023–2024</span></h2>
+      <p>Productivity tooling and IT operations for 1,500 users at a fast-growth, fully cloud-native logistics scale-up.</p>
+      <ul>
+        <li>Reduced onboarding from 5 days to 2 hours and closed offboarding access gaps by building automated joiner/mover/leaver flows across Okta, Jamf and 10+ SaaS apps via SCIM.</li>
+        <li>Brought SaaS applications under SSO and centralized governance by owning the IdP, MDM and app approval process.</li>
+      </ul>
+      <p class="blank"></p>
+      <h2>Senior Efficiency Engineer · Klarna <span class="when">2021–2023</span></h2>
+      <p>Google Workspace and productivity infrastructure for 9,000 users in a regulated fintech.</p>
+      <ul>
+        <li>Ran Google Workspace for 9,000 users by owning security policy, Context-Aware Access, DLP and admin automation with GAM.</li>
+        <li>Built custom integrations with Apps Script and Google APIs for multiple teams.</li>
+        <li>Cut tooling spend 60% through vendor consolidation and negotiation.</li>
+      </ul>
+      <p class="blank"></p>
+      <h2>IT Experience Manager · Nordward Group <span class="when">2020–2021</span></h2>
+      <ul>
+        <li>Built the IT function from zero for a 500-person venture-backed group, covering device management, identity, onboarding and productivity tooling.</li>
+      </ul>
+      <p class="blank"></p>
+      <h2>Domain Owner (Google Workspace &amp; Slack) / IT Support · Bonnier News <span class="when">2017–2020</span></h2>
+      <ul>
+        <li>Administered Google Workspace and Slack for 2,500 users across a distributed editorial organization, owning platform configuration, security policy and end-user enablement.</li>
+      </ul>
+      <p class="tilde">~</p>
+    </section>
+
+    <section id="projects" data-section class="doc">
+      <h1>Open source</h1>
+      <p class="blank"></p>
+      <h2><a href="https://github.com/pauljoda/Crest">Crest</a> <span class="dim">· contributor · 2026 · <span data-stars="pauljoda/Crest">★1,000+</span></span></h2>
+      <p>Open-source Arc-style browser for macOS and iOS on a patched Chromium engine. 30+ merged pull requests across the Swift app, .NET core and C++ engine, including password import, back/forward history that survives engine switches, page translation, Chromium tab capture without the Screen Recording permission, and Chrome/Arc extension migration at onboarding.</p>
+      <p class="blank"></p>
+      <h2>Inner Dialogue <span class="dim">· contributor and extension author · 2026 · <span data-stars="ataglianetti/inner-dialogue">★100+</span></span></h2>
+      <p>Local-first framework for persistent AI conversations built on Claude Code. Merged a knowledge-graph memory layer upstream, and maintain eight extensions, each with an integration guide for installs that have diverged from the original.</p>
+      <p class="tilde">~</p>
+    </section>
+
+    <section id="skills" data-section class="doc">
+      <h1>Technical skills</h1>
+      <p class="blank"></p>
+      <h2>Google Workspace</h2>
+      <p>Administration and security (2-Step Verification, Context-Aware Access, OAuth app access control, DLP, Vault, Alert Center), Google Meet hardware, Gemini for Workspace, Apps Script, GAM</p>
+      <h2>Mail and DNS</h2>
+      <p>MX, SPF, DKIM, DMARC, mail routing and compliance rules, coexistence during migration, secondary domains and aliases</p>
+      <h2>Identity</h2>
+      <p>Okta, Microsoft Entra ID, Google Cloud Identity, JumpCloud, OneLogin, SAML, OIDC, SCIM, joiner/mover/leaver automation</p>
+      <h2>Endpoint</h2>
+      <p>Jamf, Microsoft Intune, Google endpoint management, Apple Business Manager, zero-touch deployment</p>
+      <h2>Cloud and infrastructure</h2>
+      <p>GCP, AWS, Docker, Terraform, Proxmox, GitOps, VLAN segmentation, internal PKI</p>
+      <h2>Development and AI</h2>
+      <p>Python, JavaScript, Swift, C#/.NET, C++ (Chromium), REST APIs, webhooks, Gemini and Vertex AI, Anthropic and OpenAI APIs, Claude Code</p>
+      <h2>Delivery</h2>
+      <p>Migration planning, change management, admin and end-user enablement, SOC 2 and ISO 27001 evidence, vendor negotiation</p>
+      <p class="blank"></p>
+      <h2>Languages</h2>
+      <p>Swedish and English (native), Danish (professional), French (basic)</p>
+      <p class="tilde">~</p>
+    </section>
+
+  </main>
+
+  <footer class="status">
+    <span><span is-="badge" class="mode" id="mode">NORMAL</span> <span class="violet">main</span> <span id="file">overview</span></span>
+    <span class="dim"><span id="pos">[1/6]</span><span class="cmd-hint"> · press : for commands</span></span>
+  </footer>
+</div>
+
+<div class="palette" id="palette" hidden role="dialog" aria-modal="true" aria-label="Command palette">
+  <label class="prompt"><span class="blue" aria-hidden="true">:</span><input id="palette-input" role="combobox" aria-expanded="true" aria-controls="palette-list" aria-autocomplete="list" autocomplete="off" spellcheck="false" aria-label="Command"></label>
+  <ul id="palette-list" role="listbox" aria-label="Commands"></ul>
+  <p class="dim">↑↓ move · enter run · esc close</p>
+</div>
+</body>
 </html>

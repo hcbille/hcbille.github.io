@@ -1,0 +1,275 @@
+/* Layout and look for hcbille.se. Colors come from solarized.css. */
+
+/* Fallbacks for WebTUI (loaded from jsDelivr). If the CDN is down the page
+   keeps its background, font, spacing and list markers. Same layer names as
+   WebTUI, so when it does load nothing here changes. */
+@layer base {
+  html, body {
+    background-color: var(--background0); color: var(--foreground0);
+    font-family: var(--font-family); font-size: var(--font-size);
+    font-weight: var(--font-weight-normal); line-height: var(--line-height);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+}
+@layer components {
+  h1, h2 { font-size: var(--font-size); line-height: var(--line-height); font-weight: var(--font-weight-bold); }
+  p, li { color: var(--foreground1); }
+  ul { list-style-type: none; }
+  ul li::before { content: "- "; }
+}
+
+html, body {
+  min-height: 100%;
+  word-break: normal;
+  overflow-wrap: anywhere;
+  -webkit-text-size-adjust: 100%;
+}
+
+:focus-visible { outline: 1px solid var(--blue); outline-offset: 2px; }
+
+a { color: var(--blue-text); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--orange-text); }
+p a, li a, [is-~=typography-block] a { color: var(--blue-text); }
+p a:hover, li a:hover { color: var(--orange-text); }
+
+b, strong { color: var(--foreground0); font-weight: var(--font-weight-bold); }
+
+/* Secondary text uses base0 (4.75:1). base01 is kept for decoration only:
+   line numbers, the logo shadow, the rule and "~" lines. */
+.dim { color: var(--foreground1); }
+.yellow { color: var(--yellow); }
+.cyan { color: var(--cyan); }
+.blue { color: var(--blue); }
+.green { color: var(--green); }
+.violet { color: var(--violet); }
+
+.app { min-height: 100vh; display: flex; flex-direction: column; }
+
+/* ── Tab bar ─────────────────────────────────────────── */
+.tabs {
+  position: sticky; top: 0; z-index: 3;
+  display: flex; align-items: center;
+  background: var(--background1);
+}
+.tab-list { display: flex; flex-wrap: wrap; }
+.tab-list a {
+  padding: 0.25lh 1.5ch;
+  color: var(--foreground0);
+  text-decoration: none;
+}
+.tab-list a:hover { color: var(--sol-base2); }
+.tab-list a[aria-current="page"] {
+  background: var(--background0);
+  color: var(--sol-base2);
+  font-weight: var(--font-weight-bold);
+}
+.spacer { flex: 1; }
+.clock { color: var(--cyan-bar); padding: 0 1.5ch; white-space: nowrap; }
+.tabs button {
+  font: inherit; color: var(--foreground0); background: none; cursor: pointer;
+  border: 1px solid var(--foreground2); padding: 0 1ch; margin-right: 1ch;
+}
+.tabs .menu { display: none; color: var(--yellow-bar); border: none; padding: 0.25lh 1.5ch; margin: 0; }
+
+/* ── Main area ───────────────────────────────────────── */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 120ch;
+  margin: 0 auto;
+  padding: 2lh 2ch 2lh;
+}
+html.js main > section:not(.active) { display: none; }
+html:not(.js) main > section + section { margin-top: 3lh; }
+
+/* Framed box with its label sitting on the top border */
+.box {
+  position: relative;
+  border: 1px solid var(--box-border-color);
+  border-radius: 3px;
+  padding: 1lh 2ch;
+  min-width: 0;
+}
+.box > .label {
+  position: absolute; top: -0.8em; left: 1.5ch;
+  padding: 0 1ch;
+  background: var(--background0);
+  color: var(--yellow);
+  text-decoration: none;
+}
+.box > a.label:hover { color: var(--orange-text); }
+
+.grid { display: grid; gap: 2lh; }
+.row { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 2lh 3ch; }
+
+/* ── Screenfetch box ─────────────────────────────────── */
+.fetch { display: flex; gap: 4ch; align-items: flex-start; }
+.logo {
+  margin: 0; color: var(--cyan);
+  font-family: inherit;
+  line-height: 1.2;
+  flex: none;
+}
+/* Rows are banded like the trans flag: blue, pink, white, pink, blue */
+.logo .blue { color: var(--trans-blue); }
+.logo .pink { color: var(--trans-pink); }
+.logo .white { color: var(--trans-white); }
+.logo i { font-style: normal; color: var(--foreground2); } /* drop shadow */
+.fetch dl { min-width: 0; }
+.fetch dl > div { display: flex; gap: 0; }
+.fetch dt { color: var(--blue); font-weight: var(--font-weight-bold); flex: none; }
+.fetch dd { min-width: 0; }
+.fetch dt::after { content: ":"; color: var(--foreground1); font-weight: normal; margin-right: 1ch; }
+.fetch .who dt { color: inherit; }
+.fetch .who dt::after { content: none; }
+.fetch .who span { color: var(--foreground2); }
+.fetch .rule dd { color: var(--foreground2); overflow: hidden; white-space: nowrap; }
+.fetch dl > .swatches { display: block; margin-top: 0.5lh; } /* rows stack, unlike the key: value lines */
+.swatches dd { display: flex; }
+.swatches i { width: 3ch; height: 1lh; background: var(--c); }
+
+/* ── Overview lists ──────────────────────────────────── */
+.jobs li::before, .prs li::before { content: none; }
+.jobs li + li { margin-top: 0.5lh; }
+.when { float: right; color: var(--foreground1); font-weight: normal; margin-left: 2ch; }
+.jobs + p { margin-top: 0.5lh; }
+
+.contact > div { display: flex; }
+.contact dt { color: var(--foreground1); width: 7ch; flex: none; }
+.downloads { margin-top: 0.5lh; display: flex; gap: 2ch; flex-wrap: wrap; }
+.downloads a { color: var(--magenta-text); }
+
+/* One line per PR: the title shrinks with "…" so the repo always stays visible */
+.prs a { display: flex; white-space: nowrap; color: var(--foreground1); text-decoration: none; }
+.prs a > * { flex: none; }
+.prs a > :not(:last-child) { margin-right: 1ch; }
+.prs .title { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.prs .repo { color: var(--foreground1); }
+.prs a:hover { color: var(--orange-text); }
+.prs + p { margin-top: 0.5lh; }
+
+/* PR state badges */
+.st-open { --badge-color: var(--green); --badge-text: var(--background0); }
+.st-merged { --badge-color: var(--violet-text); --badge-text: var(--background0); }
+.st-closed { --badge-color: var(--red); --badge-text: var(--background0); }
+
+/* ── Markdown "files" with line numbers ──────────────── */
+.doc { counter-reset: line; max-width: 90ch; }
+.doc > :not(ul), .doc > ul > li {
+  position: relative;
+  padding-left: 5ch;
+}
+/* Line numbers and markdown marks are decoration: the "/ ''" alt text keeps
+   screen readers from reading them. Older browsers drop that line and use the first. */
+.doc > :not(ul)::after, .doc > ul > li::after {
+  counter-increment: line;
+  content: counter(line);
+  content: counter(line) / "";
+  position: absolute; left: 0; top: 0;
+  width: 3ch; text-align: right;
+  color: var(--foreground2);
+  font-weight: normal;
+}
+.doc h1 { color: var(--orange-text); }
+.doc h1::before { content: "# "; content: "# " / ""; }
+.doc h2 { color: var(--yellow); }
+.doc h2::before { content: "## "; content: "## " / ""; }
+.doc ul:not(.prs) li::before { content: "- "; content: "- " / ""; }
+/* Headings and sections get focus when a tab opens, for screen readers only */
+[data-section]:focus, [data-section] h1:focus { outline: none; }
+.doc h2 a { color: inherit; }
+.doc h2 .when { float: none; margin-left: 1ch; }
+.doc h2 + p, .doc h2 + ul { margin-top: 0; }
+.doc .blank { height: 1lh; }
+.doc .tilde { color: var(--foreground2); }
+
+/* ── Status line ─────────────────────────────────────── */
+.status {
+  position: sticky; bottom: 0; z-index: 3;
+  display: flex; justify-content: space-between; gap: 2ch;
+  padding: 0 1ch;
+  background: var(--background1);
+  white-space: nowrap; overflow: hidden;
+}
+.status .dim { color: var(--foreground0); }
+.status .violet { color: var(--violet-text); }
+.mode { --badge-color: var(--blue-text); --badge-text: var(--background0); }
+.mode.command { --badge-color: var(--yellow); }
+html:not(.js) .status .dim { display: none; }
+
+/* ── Command palette ─────────────────────────────────── */
+.palette {
+  position: fixed; z-index: 10;
+  top: 15vh; left: 50%; translate: -50% 0;
+  width: min(60ch, calc(100vw - 4ch));
+  background: var(--background1);
+  border: 1px solid var(--blue);
+  padding: 0.5lh 1.5ch;
+}
+.palette[hidden] { display: none; }
+.palette .prompt { display: flex; gap: 0.5ch; }
+.palette input {
+  flex: 1; font: inherit; color: var(--foreground0);
+  background: none; border: none; outline: none;
+}
+.palette ul {
+  border-top: 1px solid var(--foreground2);
+  margin: 0.5lh 0; padding-top: 0.5lh;
+}
+.palette li { padding: 0 1ch; cursor: pointer; display: flex; justify-content: space-between; gap: 2ch; }
+.palette li { color: var(--foreground0); }
+.palette li::before { content: "  "; content: "  " / ""; white-space: pre; }
+.palette li[aria-selected="true"] { background: var(--background0); color: var(--sol-base2); }
+.palette li[aria-selected="true"]::before { content: "› "; content: "› " / ""; color: var(--green); }
+.palette li .hint { color: var(--foreground0); margin-left: auto; }
+.palette .dim, .palette .blue { color: var(--foreground0); }
+
+/* ── Phones ──────────────────────────────────────────── */
+@media (max-width: 760px) {
+  :root { --font-size: 13px; }
+  html.js .tabs .menu { display: block; }
+  html.js .tab-list { display: none; }
+  .tab-list a { padding: 0.25lh 1ch; }
+  main { padding: 1.5lh 1.5ch; }
+  /* One column; the contact box moves to the top so it's on the first screen */
+  .grid > .row { display: contents; }
+  .contact-box { order: -1; }
+  .prs .repo { display: none; }
+  .fetch { flex-direction: column; gap: 1lh; }
+  .logo { font-size: 11px; }
+  .doc > :not(ul), .doc > ul > li { padding-left: 4ch; }
+  .doc > :not(ul)::after, .doc > ul > li::after { width: 2.5ch; }
+  .status .cmd-hint { display: none; }
+}
+
+/* ── Print: plain black-on-white resume ──────────────── */
+.print-head { display: none; }
+
+@media print {
+  :root {
+    --background0: #fff; --background1: #fff;
+    --foreground0: #000; --foreground1: #111; --foreground2: #555;
+    --font-size: 9.5pt;
+  }
+  @page { size: A4; margin: 14mm 16mm; }
+  html, body { background: #fff; color: #111; }
+  .tabs, .status, .palette, #overview, #now, .tilde { display: none !important; }
+  main { padding: 0; max-width: none; }
+  html.js main > section:not(#overview):not(#now) { display: block !important; }
+  main > section + section { margin-top: 1lh; }
+  .print-head {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    border-bottom: 1px solid #000; padding-bottom: 0.5lh; margin-bottom: 1lh;
+  }
+  .print-head h1 { font-size: 15pt; }
+  .print-head p:last-child { text-align: right; }
+  .doc { max-width: none; }
+  .doc > :not(ul), .doc > ul > li { padding-left: 0; }
+  .doc > ul > li { padding-left: 2ch; }
+  .doc > :not(ul)::after, .doc > ul > li::after { content: none; }
+  .doc h1, .doc h2, .doc h2 a, .yellow, .cyan { color: #000; }
+  .doc .blank { height: 0.4lh; }
+  .doc h2 { break-after: avoid; margin-top: 0.4lh; }
+  .web-only, #about > h1 { display: none; } /* print keeps the summary, not the personal intro */
+  a { color: inherit; text-decoration: none; }
+}
