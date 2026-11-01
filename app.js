@@ -20,6 +20,7 @@ function show(id, { push = true, focus = false } = {}) {
   if (!ids.includes(id)) id = 'overview';
   const current = ids.includes(location.hash.slice(1)) ? location.hash.slice(1) : 'overview';
   sections.forEach((s) => s.classList.toggle('active', s.id === id));
+  document.documentElement.dataset.tab = id; // lets CSS show the credits on the overview only
   $$('.tab-list a').forEach((a) => {
     if (a.dataset.tab === id) a.setAttribute('aria-current', 'page');
     else a.removeAttribute('aria-current');

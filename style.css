@@ -183,9 +183,18 @@ html:not(.js) main > section + section { margin-top: 3lh; }
 .doc .blank { height: 1lh; }
 .doc .tilde { color: var(--foreground2); }
 
+/* ── Bottom of the window: credits on top of the status line ── */
+.bottom { position: sticky; bottom: 0; z-index: 3; }
+
+/* Credits show on the overview only (app.js sets data-tab on <html>) */
+.credits { padding: 0.5lh 1ch 0; background: var(--background0); border-top: 1px solid var(--box-border-color); }
+html.js:not([data-tab="overview"]) .credits { display: none; }
+.credits .prompt { color: var(--green); }
+.credits .cmd { color: var(--foreground0); }
+.credits p { color: var(--foreground1); }
+
 /* ── Status line ─────────────────────────────────────── */
 .status {
-  position: sticky; bottom: 0; z-index: 3;
   display: flex; justify-content: space-between; gap: 2ch;
   padding: 0 1ch;
   background: var(--background1);
@@ -253,7 +262,7 @@ html:not(.js) .status .dim { display: none; }
   }
   @page { size: A4; margin: 14mm 16mm; }
   html, body { background: #fff; color: #111; }
-  .tabs, .status, .palette, #overview, #now, .tilde { display: none !important; }
+  .tabs, .status, .palette, .credits, #overview, #now, .tilde { display: none !important; }
   main { padding: 0; max-width: none; }
   html.js main > section:not(#overview):not(#now) { display: block !important; }
   main > section + section { margin-top: 1lh; }

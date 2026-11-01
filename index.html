@@ -40,12 +40,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@webtui/css@0.1.10/dist/base.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@webtui/css@0.1.10/dist/components/typography.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@webtui/css@0.1.10/dist/components/badge.css">
-  <link rel="stylesheet" href="solarized.css?v=14">
-  <link rel="stylesheet" href="style.css?v=14">
+  <link rel="stylesheet" href="solarized.css?v=18">
+  <link rel="stylesheet" href="style.css?v=18">
   <script>
     document.documentElement.classList.add('js');
   </script>
-  <script src="app.js?v=14" defer></script>
+  <script src="app.js?v=18" defer></script>
 </head>
 <body>
 <div class="app">
@@ -274,10 +274,17 @@
 
   </main>
 
-  <footer class="status">
-    <span><span is-="badge" class="mode" id="mode">NORMAL</span> <span class="violet">main</span> <span id="file">overview</span></span>
-    <span class="dim"><span id="pos">[1/6]</span><span class="cmd-hint"> · press : for commands</span></span>
-  </footer>
+  <!-- Bottom of the window: credits (overview only) sitting on the status line -->
+  <div class="bottom">
+    <footer class="credits">
+      <p aria-hidden="true"><span class="prompt">$</span> <span class="cmd">cat CREDITS.md</span></p>
+      <p><a href="https://webtui.ironclad.sh/">WebTUI</a> · Claude Opus 5.5 · © 2026 HC Bille <span role="img" aria-label="trans flag">🏳️‍⚧️</span></p>
+    </footer>
+    <div class="status">
+      <span><span is-="badge" class="mode" id="mode">NORMAL</span> <span class="violet">main</span> <span id="file">overview</span></span>
+      <span class="dim"><span id="pos">[1/6]</span><span class="cmd-hint"> · press : for commands</span></span>
+    </div>
+  </div>
 </div>
 
 <div class="palette" id="palette" hidden role="dialog" aria-modal="true" aria-label="Command palette">
