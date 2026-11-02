@@ -286,9 +286,9 @@ html:not(.js) .status .dim { display: none; }
   }
   @page { size: A4; margin: 14mm 16mm; }
   html, body { background: #fff; color: #111; }
-  .tabs, .status, .palette, .credits, #overview, #now, .tilde { display: none !important; }
+  .tabs, .status, .palette, .credits, #overview, #now, #case-study, .tilde { display: none !important; }
   main { padding: 0; max-width: none; }
-  html.js main > section:not(#overview):not(#now) { display: block !important; }
+  html.js main > section:not(#overview):not(#now):not(#case-study) { display: block !important; }
   main > section + section { margin-top: 1lh; }
   .print-head {
     display: flex; justify-content: space-between; align-items: flex-start;
