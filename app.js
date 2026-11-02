@@ -25,6 +25,12 @@ function show(id, { push = true, focus = false } = {}) {
     if (a.dataset.tab === id) a.setAttribute('aria-current', 'page');
     else a.removeAttribute('aria-current');
   });
+  // On phones the tab row scrolls sideways: keep the current tab in view
+  const tab = $(`.tab-list a[data-tab="${id}"]`);
+  const row = tab.parentElement;
+  if (row.scrollWidth > row.clientWidth) {
+    row.scrollTo({ left: tab.offsetLeft - (row.clientWidth - tab.offsetWidth) / 2 });
+  }
   const n = ids.indexOf(id) + 1;
   $('#file').textContent = tabLabels[id];
   $('#pos').textContent = `[${n}/${ids.length}]`;
@@ -92,6 +98,7 @@ const menuButton = $('#menu');
 let selected = 0;
 let matches = [];
 let returnFocus = null;
+const touchScreen = matchMedia('(pointer: coarse)');
 
 const commands = [
   ...ids.map((id, i) => ({ name: 'open ' + tabLabels[id], hint: String(i + 1), run: () => show(id, { focus: true }) })),
@@ -143,7 +150,10 @@ function openPalette() {
   input.value = '';
   selected = 0;
   renderPalette();
-  input.focus();
+  // On touch screens, focusing the box would open the on-screen keyboard over
+  // the list. Typing still works there: paletteKey() feeds keys into the box.
+  if (touchScreen.matches) palette.focus();
+  else input.focus();
   setMode(true);
 }
 

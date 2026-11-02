@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Not found · HC Bille</title>
+  <meta name="robots" content="noindex">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <!-- Absolute paths: GitHub Pages serves this page at whatever address was missing -->
+  <link rel="stylesheet" href="/vendor/webtui.css?v=19">
+  <link rel="stylesheet" href="/solarized.css?v=19">
+  <link rel="stylesheet" href="/style.css?v=19">
+</head>
+<body>
+<div class="app">
+  <nav class="tabs" aria-label="Sections">
+    <div class="tab-list"><a href="/">~ overview</a></div>
+  </nav>
+
+  <main>
+    <section class="doc">
+      <p><span class="green" aria-hidden="true">$</span> cat <span id="path">this-page</span></p>
+      <h1>bash: page: not found</h1>
+      <p class="blank"></p>
+      <p>There's nothing at this address. It may have moved when the site was rebuilt.</p>
+      <p class="blank"></p>
+      <p><a href="/">→ cd ~</a> <span class="dim">· go to the overview</span></p>
+      <p><a href="/resume.pdf">→ resume.pdf</a></p>
+      <p><a href="mailto:hcbille@gmail.com">→ hcbille@gmail.com</a></p>
+      <p class="tilde">~</p>
+    </section>
+  </main>
+
+  <div class="bottom">
+    <div class="status">
+      <span><span is-="badge" class="mode">NORMAL</span> <span class="violet">main</span> 404</span>
+    </div>
+  </div>
+</div>
+<script>
+  // Show the address that was asked for, as text only
+  document.getElementById('path').textContent = location.pathname;
+</script>
+</body>
+</html>

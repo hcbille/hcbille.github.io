@@ -10,7 +10,7 @@ Systems Architect · Stockholm, Sweden
 
 ## Summary
 
-Systems Architect who has designed, built and run Google Workspace, identity and endpoint platforms for up to 9,000 users at Klarna, Arrive, Instabee and Bonnier News, and led tenant consolidations through acquisitions. Now moving toward solutions, customer and partner engineering, bringing the customer-side view of migrations, security and adoption. Hands-on with Okta, Entra ID, Jamf and Intune, and ships production code in Swift, C# and C++ (Chromium).
+Systems Architect who has designed, built and run Google Workspace, identity and endpoint platforms for up to 9,000 users at Klarna, Arrive, Instabee and Bonnier News, and led tenant consolidations through acquisitions. Looking for solutions, customer and partner engineering roles in Stockholm or remote, bringing the customer-side view of migrations, security and adoption. Hands-on with Okta, Entra ID, Jamf and Intune, and ships production code in Swift, C# and C++ (Chromium).
 
 ## Experience
 

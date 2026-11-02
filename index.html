@@ -34,18 +34,14 @@
   </script>
   <link rel="me" href="https://tech.lgbt/@hcbille">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cousine:wght@400;700&display=swap">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@webtui/css@0.1.10/dist/base.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@webtui/css@0.1.10/dist/components/typography.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@webtui/css@0.1.10/dist/components/badge.css">
-  <link rel="stylesheet" href="solarized.css?v=18">
-  <link rel="stylesheet" href="style.css?v=18">
+  <link rel="preload" href="fonts/cousine-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="vendor/webtui.css?v=19">
+  <link rel="stylesheet" href="solarized.css?v=19">
+  <link rel="stylesheet" href="style.css?v=19">
   <script>
     document.documentElement.classList.add('js');
   </script>
-  <script src="app.js?v=18" defer></script>
+  <script src="app.js?v=19" defer></script>
 </head>
 <body>
 <div class="app">
@@ -77,6 +73,12 @@
 
     <section id="overview" data-section aria-label="Overview">
       <div class="grid">
+        <header class="intro">
+          <p class="cmdline" aria-hidden="true"><span class="green">$</span> whoami</p>
+          <h1>HC Bille <span class="dim">·</span> <span class="cyan">Systems Architect</span></h1>
+          <p><span class="yellow">looking for:</span> solutions, customer and partner engineering roles <span class="dim">·</span> Stockholm or remote</p>
+        </header>
+
         <div class="box fetch">
           <a class="label" href="#about">about.md →</a>
           <pre class="logo" aria-hidden="true"><span class="blue">  omyyyoo//...</span>
@@ -95,24 +97,26 @@
 <span class="blue">        sNNNMMMNNmmyyoooyMh<i>o</i></span>
 <span class="blue">         <i>`</i><i>+</i><i>+</i><i>+</i><i>+</i>``///yyhhhNN+<i>+</i></span>
 <span class="blue">                    <i>`</i><i>`</i><i>`</i><i>/</i><i>/</i><i>/</i><i>+</i><i>`</i></span></pre>
-          <dl>
-            <div class="who"><dt><b>root</b><span>@</span><b>hcbille</b></dt></div>
-            <div class="rule" aria-hidden="true"><dd>────────────</dd></div>
-            <div><dt>Name</dt><dd>HC Bille</dd></div>
-            <div><dt>Pronouns</dt><dd>She/Her</dd></div>
-            <div><dt>Role</dt><dd>Systems Architect</dd></div>
-            <div><dt>Host</dt><dd>Arrive</dd></div>
-            <div><dt>Location</dt><dd>Stockholm, Sweden</dd></div>
-            <div><dt>Uptime</dt><dd><span class="uptime green">9y</span> in Tech</dd></div>
-            <div><dt>Users</dt><dd>9,000 at peak</dd></div>
-            <div><dt>Packages</dt><dd>Google Workspace, Slack, Okta, Claude</dd></div>
-            <div><dt>Theme</dt><dd>Solarized Dark</dd></div>
+          <div class="info">
+            <p class="who"><b>root</b><span>@</span><b>hcbille</b></p>
+            <p class="rule" aria-hidden="true">────────────</p>
+            <dl>
+              <div><dt>Name</dt><dd>HC Bille</dd></div>
+              <div><dt>Pronouns</dt><dd>She/Her</dd></div>
+              <div><dt>Role</dt><dd>Systems Architect</dd></div>
+              <div><dt>Host</dt><dd>Arrive</dd></div>
+              <div><dt>Location</dt><dd>Stockholm, Sweden</dd></div>
+              <div><dt>Uptime</dt><dd><span class="uptime green">9y</span> in Tech</dd></div>
+              <div><dt>Users</dt><dd>9,000 at peak</dd></div>
+              <div><dt>Packages</dt><dd>Google Workspace, Slack, Okta, Claude</dd></div>
+              <div><dt>Theme</dt><dd>Solarized Dark</dd></div>
+            </dl>
             <div class="swatches" aria-hidden="true">
               <!-- Top: the colors the site uses. Bottom: Solarized's greys, dark to light, like a terminal's bright row -->
-              <dd><i style="--c: var(--sol-base02)"></i><i style="--c: var(--yellow)"></i><i style="--c: var(--orange)"></i><i style="--c: var(--magenta)"></i><i style="--c: var(--violet)"></i><i style="--c: var(--blue)"></i><i style="--c: var(--cyan)"></i><i style="--c: var(--green)"></i></dd>
-              <dd><i style="--c: var(--sol-base03)"></i><i style="--c: var(--sol-base02)"></i><i style="--c: var(--sol-base01)"></i><i style="--c: var(--sol-base00)"></i><i style="--c: var(--sol-base0)"></i><i style="--c: var(--sol-base1)"></i><i style="--c: var(--sol-base2)"></i><i style="--c: var(--sol-base3)"></i></dd>
+              <p><i style="--c: var(--sol-base02)"></i><i style="--c: var(--yellow)"></i><i style="--c: var(--orange)"></i><i style="--c: var(--magenta)"></i><i style="--c: var(--violet)"></i><i style="--c: var(--blue)"></i><i style="--c: var(--cyan)"></i><i style="--c: var(--green)"></i></p>
+              <p><i style="--c: var(--sol-base03)"></i><i style="--c: var(--sol-base02)"></i><i style="--c: var(--sol-base01)"></i><i style="--c: var(--sol-base00)"></i><i style="--c: var(--sol-base0)"></i><i style="--c: var(--sol-base1)"></i><i style="--c: var(--sol-base2)"></i><i style="--c: var(--sol-base3)"></i></p>
             </div>
-          </dl>
+          </div>
         </div>
 
         <div class="row">
@@ -169,7 +173,7 @@
       <p class="web-only">Off the clock I write Swift and C++ for an open-source browser, and I live in a terminal with Solarized on.</p>
       <p class="blank web-only"></p>
       <h2>Summary</h2>
-      <p>Systems Architect who has designed, built and run Google Workspace, identity and endpoint platforms for up to 9,000 users at Klarna, Arrive, Instabee and Bonnier News, and led tenant consolidations through acquisitions. Now moving toward solutions, customer and partner engineering, bringing the customer-side view of migrations, security and adoption. Hands-on with Okta, Entra ID, Jamf and Intune, and ships production code in Swift, C# and C++ (Chromium).</p>
+      <p>Systems Architect who has designed, built and run Google Workspace, identity and endpoint platforms for up to 9,000 users at Klarna, Arrive, Instabee and Bonnier News, and led tenant consolidations through acquisitions. Looking for solutions, customer and partner engineering roles in Stockholm or remote, bringing the customer-side view of migrations, security and adoption. Hands-on with Okta, Entra ID, Jamf and Intune, and ships production code in Swift, C# and C++ (Chromium).</p>
       <p class="tilde">~</p>
     </section>
 
@@ -287,7 +291,7 @@
   </div>
 </div>
 
-<div class="palette" id="palette" hidden role="dialog" aria-modal="true" aria-label="Command palette">
+<div class="palette" id="palette" hidden tabindex="-1" role="dialog" aria-modal="true" aria-label="Command palette">
   <label class="prompt"><span class="blue" aria-hidden="true">:</span><input id="palette-input" role="combobox" aria-expanded="true" aria-controls="palette-list" aria-autocomplete="list" autocomplete="off" spellcheck="false" aria-label="Command"></label>
   <ul id="palette-list" role="listbox" aria-label="Commands"></ul>
   <p class="dim">↑↓ move · enter run · esc close</p>

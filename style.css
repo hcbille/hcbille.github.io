@@ -80,6 +80,10 @@ main {
   padding: 2lh 2ch 2lh;
 }
 html.js main > section:not(.active) { display: none; }
+/* A link like /#experience makes the browser jump to that section, which would
+   leave its first line under the sticky tab bar. A huge margin makes the jump
+   stop at the top of the page instead. */
+html.js main > section { scroll-margin-top: 100vh; }
 html:not(.js) main > section + section { margin-top: 3lh; }
 
 /* Framed box with its label sitting on the top border */
@@ -115,18 +119,22 @@ html:not(.js) main > section + section { margin-top: 3lh; }
 .logo .pink { color: var(--trans-pink); }
 .logo .white { color: var(--trans-white); }
 .logo i { font-style: normal; color: var(--foreground2); } /* drop shadow */
-.fetch dl { min-width: 0; }
+.fetch .info { min-width: 0; }
 .fetch dl > div { display: flex; gap: 0; }
 .fetch dt { color: var(--blue); font-weight: var(--font-weight-bold); flex: none; }
 .fetch dd { min-width: 0; }
 .fetch dt::after { content: ":"; color: var(--foreground1); font-weight: normal; margin-right: 1ch; }
-.fetch .who dt { color: inherit; }
-.fetch .who dt::after { content: none; }
+.fetch .who { color: var(--foreground0); }
 .fetch .who span { color: var(--foreground2); }
-.fetch .rule dd { color: var(--foreground2); overflow: hidden; white-space: nowrap; }
-.fetch dl > .swatches { display: block; margin-top: 0.5lh; } /* rows stack, unlike the key: value lines */
-.swatches dd { display: flex; }
+.fetch .rule { color: var(--foreground2); overflow: hidden; white-space: nowrap; }
+.swatches { margin-top: 0.5lh; }
+.swatches p { display: flex; }
 .swatches i { width: 3ch; height: 1lh; background: var(--c); }
+
+/* ── Intro: who and what HC is looking for, first thing on the page ── */
+.intro .cmdline { color: var(--foreground0); }
+.intro h1 { color: var(--sol-base2); }
+.intro p:last-child { color: var(--foreground0); }
 
 /* ── Overview lists ──────────────────────────────────── */
 .jobs li::before, .prs li::before { content: none; }
@@ -216,6 +224,7 @@ html:not(.js) .status .dim { display: none; }
   padding: 0.5lh 1.5ch;
 }
 .palette[hidden] { display: none; }
+.palette:focus { outline: none; }
 .palette .prompt { display: flex; gap: 0.5ch; }
 .palette input {
   flex: 1; font: inherit; color: var(--foreground0);
@@ -235,14 +244,27 @@ html:not(.js) .status .dim { display: none; }
 
 /* ── Phones ──────────────────────────────────────────── */
 @media (max-width: 760px) {
-  :root { --font-size: 13px; }
-  html.js .tabs .menu { display: block; }
-  html.js .tab-list { display: none; }
-  .tab-list a { padding: 0.25lh 1ch; }
+  :root { --font-size: 15px; }
+  /* Tabs stay visible as one row that scrolls sideways; the clock makes room */
+  .tabs { gap: 0; }
+  .tab-list {
+    flex: 1; min-width: 0;
+    flex-wrap: nowrap; overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tab-list::-webkit-scrollbar { display: none; }
+  .tab-list a { padding: 0.25lh 1ch; white-space: nowrap; flex: none; }
+  .tabs .spacer, .clock { display: none; }
+  html.js .tabs .menu { display: block; flex: none; }
   main { padding: 1.5lh 1.5ch; }
-  /* One column; the contact box moves to the top so it's on the first screen */
+  /* One column: who and what first, then contact, so both are on the first screen */
+  .grid { gap: 1.5lh; }
   .grid > .row { display: contents; }
+  .intro { order: -2; }
   .contact-box { order: -1; }
+  /* Credits scroll with the page; only the status line stays pinned */
+  .bottom { display: contents; }
+  .status { position: sticky; bottom: 0; z-index: 3; }
   .prs .repo { display: none; }
   .fetch { flex-direction: column; gap: 1lh; }
   .logo { font-size: 11px; }
