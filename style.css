@@ -131,7 +131,9 @@ html:not(.js) main > section + section { margin-top: 3lh; }
 .swatches p { display: flex; }
 .swatches i { width: 3ch; height: 1lh; background: var(--c); }
 
-/* ── Intro: who and what HC is looking for, first thing on the page ── */
+/* ── Intro: who and what HC is looking for, first thing on phones ──
+   Desktop already shows this in the screenfetch box, so it's phone-only. */
+.intro { display: none; }
 .intro .cmdline { color: var(--foreground0); }
 .intro h1 { color: var(--sol-base2); }
 .intro p:last-child { color: var(--foreground0); }
@@ -260,7 +262,7 @@ html:not(.js) .status .dim { display: none; }
   /* One column: who and what first, then contact, so both are on the first screen */
   .grid { gap: 1.5lh; }
   .grid > .row { display: contents; }
-  .intro { order: -2; }
+  .intro { display: block; order: -2; }
   .contact-box { order: -1; }
   /* Credits scroll with the page; only the status line stays pinned */
   .bottom { display: contents; }
