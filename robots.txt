@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hcbille.se/sitemap.xml

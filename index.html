@@ -35,24 +35,25 @@
   <link rel="me" href="https://tech.lgbt/@hcbille">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/cousine-400-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="vendor/webtui.css?v=20">
-  <link rel="stylesheet" href="solarized.css?v=20">
-  <link rel="stylesheet" href="style.css?v=20">
+  <link rel="stylesheet" href="vendor/webtui.css?v=21">
+  <link rel="stylesheet" href="solarized.css?v=21">
+  <link rel="stylesheet" href="style.css?v=21">
   <script>
     document.documentElement.classList.add('js');
   </script>
-  <script src="app.js?v=20" defer></script>
+  <script src="app.js?v=21" defer></script>
 </head>
 <body>
 <div class="app">
 
   <nav class="tabs" aria-label="Sections">
-    <button type="button" class="menu" id="menu" aria-label="Open command menu" aria-haspopup="dialog" aria-expanded="false" aria-controls="palette">[≡ <span id="menu-pos">1/6</span>]</button>
+    <button type="button" class="menu" id="menu" aria-label="Open command menu" aria-haspopup="dialog" aria-expanded="false" aria-controls="palette">[≡ <span id="menu-pos">1/7</span>]</button>
     <div class="tab-list">
       <a href="#overview" data-tab="overview">~ overview</a>
       <a href="#about" data-tab="about">about.md</a>
       <a href="#now" data-tab="now">now.md</a>
       <a href="#experience" data-tab="experience">experience.md</a>
+      <a href="#case-study" data-tab="case-study">case-study.md</a>
       <a href="#projects" data-tab="projects">projects.md</a>
       <a href="#skills" data-tab="skills">skills.md</a>
     </div>
@@ -128,6 +129,7 @@
               <li><b>Senior Efficiency Engineer</b><span class="when">2021–23</span><br><span class="cyan">Klarna</span></li>
             </ul>
             <p class="dim">+ Nordward Group, Bonnier News</p>
+            <p><a href="#case-study">case study: EasyPark → Arrive →</a></p>
           </div>
           <div class="box contact-box">
             <span class="label">contact</span>
@@ -242,6 +244,37 @@
       <p class="tilde">~</p>
     </section>
 
+    <section id="case-study" data-section class="doc">
+      <h1>Case study: EasyPark → Arrive</h1>
+      <p class="dim">Rebrand of every account, live on stage · 4,500+ users · 35 countries</p>
+      <p class="blank"></p>
+      <h2>The problem</h2>
+      <p>EasyPark Group was becoming Arrive, and the new name was secret until it was announced on stage. At the moment of that announcement, every person's email address, groups and shared mailboxes had to move from the group's historical brands to arrive.com, in Google Workspace, Slack, Okta and the HR system at once.</p>
+      <p class="blank"></p>
+      <h2>Constraints</h2>
+      <ul>
+        <li>Secret until the reveal, so no pilot groups and no warning to users. Everything was rehearsed by simulation instead.</li>
+        <li>Three weeks from start to go-live.</li>
+        <li>A very small in-house group, because of how sensitive the project was.</li>
+        <li>All 4,500+ users in one go, with no downtime.</li>
+      </ul>
+      <p class="blank"></p>
+      <h2>What I did</h2>
+      <ul>
+        <li>Led the change for Google Workspace and Slack, and kept the overview of how Google, Slack, Okta and the HR system depended on each other.</li>
+        <li>Knew who had to be involved, and brought HR in early enough that the HR system could change in step with everything else.</li>
+        <li>Kept the Workspace primary domain as it was, since changing it would have touched things outside our control, and renamed every user account, group and shared mailbox to arrive.com instead.</li>
+        <li>Scripted the whole change, so it ran the same way in the simulations and on the day, with no manual cleanup afterwards.</li>
+      </ul>
+      <p class="blank"></p>
+      <h2>Result</h2>
+      <p>All 4,500+ users moved to arrive.com the moment the brand went live on stage. Nobody was logged out or lost a session, and every old address kept receiving mail.</p>
+      <p class="blank"></p>
+      <h2>What I'd tell a customer doing the same</h2>
+      <p>Stressful, but very doable. When every system identifies people by email address, the plan is mostly knowing who owns each system and bringing them in early, then rehearsing until the day itself is just running the script.</p>
+      <p class="tilde">~</p>
+    </section>
+
     <section id="projects" data-section class="doc">
       <h1>Open source</h1>
       <p class="blank"></p>
@@ -250,6 +283,20 @@
       <p class="blank"></p>
       <h2>Inner Dialogue <span class="dim">· contributor and extension author · 2026 · <span data-stars="ataglianetti/inner-dialogue">★100+</span></span></h2>
       <p>Local-first framework for persistent AI conversations built on Claude Code. Merged a knowledge-graph memory layer upstream, and maintain eight extensions, each with an integration guide for installs that have diverged from the original.</p>
+      <p class="blank"></p>
+      <h1>My own tools</h1>
+      <p class="blank"></p>
+      <h2><a href="https://github.com/hcbille/UpNote-API">UpNote API</a> <span class="dim">· author · 2023 · <span data-stars="hcbille/UpNote-API">★9</span></span></h2>
+      <p>Gives the UpNote notes app the HTTP API it lacks. A small Node server runs in Termux on an always-on Android box and turns requests into UpNote's x-callback URLs.</p>
+      <p class="blank"></p>
+      <h2><a href="https://github.com/hcbille/Gmail-UpNoteAPI">Gmail to UpNote</a> <span class="dim">· author · 2023</span></h2>
+      <p>Apps Script that sends Gmail messages with a chosen label to UpNote through that API, set up from a Google Sheets menu.</p>
+      <p class="blank"></p>
+      <h2><a href="https://github.com/hcbille/install-tizenbrew-tizen">install-tizenbrew-tizen</a> <span class="dim">· author · 2024 · <span data-stars="hcbille/install-tizenbrew-tizen">★5</span></span></h2>
+      <p>One Docker command that installs TizenBrew on a Samsung TV in developer mode, without setting up Samsung's SDK.</p>
+      <p class="blank"></p>
+      <h2><a href="https://github.com/hcbille/Slack-API-tools">Slack API tools</a> <span class="dim">· author · 2023</span></h2>
+      <p>Python scripts for Slack admins. Adds people to channels in bulk from a CSV through the admin API, with retries.</p>
       <p class="tilde">~</p>
     </section>
 
@@ -286,7 +333,7 @@
     </footer>
     <div class="status">
       <span><span is-="badge" class="mode" id="mode">NORMAL</span> <span class="violet">main</span> <span id="file">overview</span></span>
-      <span class="dim"><span id="pos">[1/6]</span><span class="cmd-hint"> · press : for commands</span></span>
+      <span class="dim"><span id="pos">[1/7]</span><span class="cmd-hint"> · press : for commands</span></span>
     </div>
   </div>
 </div>
