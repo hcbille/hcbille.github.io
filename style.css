@@ -165,13 +165,13 @@ html:not(.js) main > section + section { margin-top: 3lh; }
 
 /* ── Markdown "files" with line numbers ──────────────── */
 .doc { counter-reset: line; max-width: 90ch; }
-.doc > :not(ul), .doc > ul > li {
+.doc > :not(ul, ol), .doc > :is(ul, ol) > li {
   position: relative;
   padding-left: 5ch;
 }
 /* Line numbers and markdown marks are decoration: the "/ ''" alt text keeps
    screen readers from reading them. Older browsers drop that line and use the first. */
-.doc > :not(ul)::after, .doc > ul > li::after {
+.doc > :not(ul, ol)::after, .doc > :is(ul, ol) > li::after {
   counter-increment: line;
   content: counter(line);
   content: counter(line) / "";
@@ -192,6 +192,42 @@ html:not(.js) main > section + section { margin-top: 3lh; }
 .doc h2 + p, .doc h2 + ul { margin-top: 0; }
 .doc .blank { height: 1lh; }
 .doc .tilde { color: var(--foreground2); }
+
+/* ── Blog posts (rendered from markdown by blog.js) ──── */
+.doc h3 { color: var(--cyan); }
+.doc h3::before { content: "### "; content: "### " / ""; }
+.doc h1 code, .doc h2 code, .doc h3 code { background: none; padding: 0; }
+.doc code { color: var(--cyan); }
+.doc > pre {
+  /* Shaded like a code fence, leaving the line-number gutter clear */
+  background: linear-gradient(to right, transparent 4ch, var(--background1) 4ch);
+  padding: 0.5lh 1ch 0.5lh 5ch;
+  overflow-x: auto;
+  font-family: inherit;
+}
+.doc > pre code { display: block; padding: 0; background: none; color: var(--foreground0); white-space: pre; }
+.doc > blockquote { padding-left: 5ch; }
+.doc > blockquote::before { content: none; }
+.doc > blockquote p::before { content: "> "; content: "> " / ""; color: var(--foreground2); }
+.doc > blockquote p { color: var(--foreground0); font-style: italic; }
+.doc ol { list-style: none; counter-reset: item; }
+.doc ol > li { counter-increment: item; }
+.doc ol > li::before { content: counter(item) ". "; content: counter(item) ". " / ""; color: var(--foreground1); }
+.doc li > ul, .doc li > ol { margin-left: 2ch; }
+.doc img { display: block; max-width: 100%; height: auto; border: 1px solid var(--box-border-color); }
+.doc > hr { border: 0; height: 1lh; }
+.doc > hr::before { content: "---"; content: "---" / ""; color: var(--foreground2); }
+.doc table { border-collapse: collapse; }
+.doc th, .doc td { border: 1px solid var(--box-border-color); padding: 0 1ch; text-align: left; }
+.doc th { color: var(--foreground0); }
+.posts li + li { margin-top: 0.5lh; }
+#post .loading { color: var(--foreground1); }
+
+/* Without JavaScript every section shows. Built blog pages show only their own. */
+html:not(.js):not([data-page]) #post,
+html:not(.js)[data-page="post"] main > section:not(#post),
+html:not(.js)[data-page="blog"] main > section:not(#blog) { display: none; }
+html:not(.js)[data-page] main > section { margin-top: 0; }
 
 /* ── Bottom of the window: credits on top of the status line ── */
 .bottom { position: sticky; bottom: 0; z-index: 3; }
@@ -270,8 +306,8 @@ html:not(.js) .status .dim { display: none; }
   .prs .repo { display: none; }
   .fetch { flex-direction: column; gap: 1lh; }
   .logo { font-size: 11px; }
-  .doc > :not(ul), .doc > ul > li { padding-left: 4ch; }
-  .doc > :not(ul)::after, .doc > ul > li::after { width: 2.5ch; }
+  .doc > :not(ul, ol), .doc > :is(ul, ol) > li { padding-left: 4ch; }
+  .doc > :not(ul, ol)::after, .doc > :is(ul, ol) > li::after { width: 2.5ch; }
   .status .cmd-hint { display: none; }
 }
 
@@ -286,9 +322,9 @@ html:not(.js) .status .dim { display: none; }
   }
   @page { size: A4; margin: 14mm 16mm; }
   html, body { background: #fff; color: #111; }
-  .tabs, .status, .palette, .credits, #overview, #now, #case-study, .tilde { display: none !important; }
+  .tabs, .status, .palette, .credits, #overview, #now, #case-study, #blog, #post, .tilde { display: none !important; }
   main { padding: 0; max-width: none; }
-  html.js main > section:not(#overview):not(#now):not(#case-study) { display: block !important; }
+  html.js main > section:not(#overview):not(#now):not(#case-study):not(#blog):not(#post) { display: block !important; }
   main > section + section { margin-top: 1lh; }
   .print-head {
     display: flex; justify-content: space-between; align-items: flex-start;
@@ -297,9 +333,9 @@ html:not(.js) .status .dim { display: none; }
   .print-head h1 { font-size: 15pt; }
   .print-head p:last-child { text-align: right; }
   .doc { max-width: none; }
-  .doc > :not(ul), .doc > ul > li { padding-left: 0; }
-  .doc > ul > li { padding-left: 2ch; }
-  .doc > :not(ul)::after, .doc > ul > li::after { content: none; }
+  .doc > :not(ul, ol), .doc > :is(ul, ol) > li { padding-left: 0; }
+  .doc > :is(ul, ol) > li { padding-left: 2ch; }
+  .doc > :not(ul, ol)::after, .doc > :is(ul, ol) > li::after { content: none; }
   .doc h1, .doc h2, .doc h2 a, .yellow, .cyan { color: #000; }
   .doc .blank { height: 0.4lh; }
   .doc h2 { break-after: avoid; margin-top: 0.4lh; }
