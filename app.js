@@ -10,16 +10,76 @@ const CAREER_START = new Date(2017, 2, 1); // March 2017
 const sections = $$('[data-section]');
 const ids = sections.map((s) => s.id);
 const tabLabels = Object.fromEntries($$('.tab-list a').map((a) => [a.dataset.tab, a.textContent]));
-const baseTitle = document.title;
+const SITE_TITLE = 'HC Bille · Systems Architect';
+const postSection = $('#post');
+
+/* ── Addresses ───────────────────────────────────────── */
+// Tabs use #about-style addresses on the root page. The blog uses real paths:
+// /blog/ for the list and /blog/<name>/ for a post, which the build also
+// writes as pages. Returns null for addresses that aren't part of the site's tabs.
+
+function parseRoute(url) {
+  const p = url.pathname.replace(/index\.html$/, '');
+  if (p === '/') {
+    const h = url.hash.slice(1);
+    return h === 'blog' ? { id: 'blog' } : { id: ids.includes(h) ? h : 'overview' };
+  }
+  if (p === '/blog/' || p === '/blog') return { id: 'blog' };
+  const m = p.match(/^\/blog\/([a-z0-9-]+)\/?$/);
+  return m ? { id: 'blog', post: m[1] } : null;
+}
+
+function urlFor(id, post) {
+  if (post) return `/blog/${post}/`;
+  if (id === 'overview') return '/';
+  if (id === 'blog') return '/blog/';
+  return '/#' + id;
+}
+
+/* ── Blog posts ──────────────────────────────────────── */
+// A built post page arrives with its post already in #post. Anything else is
+// fetched as markdown and rendered here with the same code the build uses.
+
+let postLoad = 0; // ignores a slow fetch if another post was opened meanwhile
+
+async function loadPost(slug) {
+  if (postSection.dataset.post === slug) return;
+  const mine = ++postLoad;
+  postSection.dataset.post = slug;
+  postSection.innerHTML = `<p class="loading">loading blog/${slug}.md…</p>`;
+  let html;
+  try {
+    const [{ Marked }, blog, res] = await Promise.all([
+      import('/vendor/marked.esm.js'),
+      import('/blog.js'),
+      fetch(`/blog/${slug}.md`),
+    ]);
+    if (!res.ok) throw new Error(res.status);
+    html = blog.renderPost(Marked, await res.text()).html;
+  } catch (e) {
+    html = `<h1>Not found</h1><p class="blank"></p><p>cat: blog/${slug}.md: No such file or directory</p>` +
+      '<p class="blank"></p><p><a href="/blog/">← cd ..</a> <span class="dim">· all posts</span></p><p class="tilde">~</p>';
+  }
+  if (mine !== postLoad) return;
+  postSection.innerHTML = html;
+  if (location.pathname === urlFor('blog', slug)) document.title = postTitle();
+}
+
+const postTitle = () => {
+  const h1 = $('h1', postSection);
+  return h1 && !$('.loading', postSection) ? `${h1.textContent} · HC Bille` : `blog/${postSection.dataset.post}.md · ${SITE_TITLE}`;
+};
 
 /* ── Tabs ─────────────────────────────────────────────── */
 
 // focus: move keyboard and screen reader focus to the new section.
 // Used when the visitor picks a tab, not on page load or back/forward.
-function show(id, { push = true, focus = false } = {}) {
+function show(id, { post, push = true, focus = false } = {}) {
   if (!ids.includes(id)) id = 'overview';
-  const current = ids.includes(location.hash.slice(1)) ? location.hash.slice(1) : 'overview';
-  sections.forEach((s) => s.classList.toggle('active', s.id === id));
+  if (id !== 'blog') post = undefined;
+  const section = post ? postSection : $('#' + id);
+  sections.forEach((s) => s.classList.toggle('active', s === section));
+  postSection.classList.toggle('active', !!post);
   document.documentElement.dataset.tab = id; // lets CSS show the credits on the overview only
   $$('.tab-list a').forEach((a) => {
     if (a.dataset.tab === id) a.setAttribute('aria-current', 'page');
@@ -32,32 +92,44 @@ function show(id, { push = true, focus = false } = {}) {
     row.scrollTo({ left: tab.offsetLeft - (row.clientWidth - tab.offsetWidth) / 2 });
   }
   const n = ids.indexOf(id) + 1;
-  $('#file').textContent = tabLabels[id];
+  $('#file').textContent = post ? `blog/${post}.md` : tabLabels[id];
   $('#pos').textContent = `[${n}/${ids.length}]`;
   $('#menu-pos').textContent = `${n}/${ids.length}`;
-  document.title = id === 'overview' ? baseTitle : `${tabLabels[id]} · ${baseTitle}`;
-  if (push && (id !== current || (id === 'overview' && location.hash))) {
-    history.pushState(null, '', id === 'overview' ? location.pathname : '#' + id);
-  }
+  const url = urlFor(id, post);
+  if (push && url !== location.pathname + location.hash) history.pushState(null, '', url);
+  if (post) loadPost(post);
+  document.title = post ? postTitle() : id === 'overview' ? SITE_TITLE : `${tabLabels[id]} · ${SITE_TITLE}`;
   window.scrollTo(0, 0);
   if (focus) {
-    const section = $('#' + id);
     const target = $('h1', section) || section;
     target.setAttribute('tabindex', '-1');
     target.focus({ preventScroll: true });
   }
 }
 
+const go = (url, opts) => {
+  const r = parseRoute(url);
+  show(r ? r.id : 'overview', { post: r && r.post, ...opts });
+};
+
 document.addEventListener('click', (e) => {
   // Let Cmd/Ctrl/Shift-click open the link in a new tab or window as usual
   if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-  const a = e.target.closest('a[href^="#"]');
-  if (!a) return;
+  const a = e.target.closest('a[href]');
+  if (!a || a.target || a.hasAttribute('download')) return;
+  const url = new URL(a.href);
+  if (url.origin !== location.origin || !parseRoute(url)) return;
   e.preventDefault();
-  show(a.getAttribute('href').slice(1), { focus: true });
+  go(url, { focus: true });
 });
-window.addEventListener('popstate', () => show(location.hash.slice(1), { push: false }));
-show(location.hash.slice(1), { push: false });
+window.addEventListener('popstate', () => go(new URL(location.href), { push: false }));
+// Old #blog links move to /blog/; anything else keeps its address
+{
+  const url = new URL(location.href);
+  const r = parseRoute(url);
+  go(url, { push: false });
+  if (r && r.id === 'blog' && url.hash === '#blog') history.replaceState(null, '', '/blog/');
+}
 
 /* ── Clock and uptime ────────────────────────────────── */
 
@@ -102,6 +174,7 @@ const touchScreen = matchMedia('(pointer: coarse)');
 
 const commands = [
   ...ids.map((id, i) => ({ name: 'open ' + tabLabels[id], hint: String(i + 1), run: () => show(id, { focus: true }) })),
+  ...$$('#blog a[data-post]').map((a) => ({ name: 'read ' + a.textContent.toLowerCase(), hint: '', run: () => show('blog', { post: a.dataset.post, focus: true }) })),
   { name: 'export resume.pdf', hint: '↓', run: () => download('resume.pdf') },
   { name: 'export resume.md', hint: '↓', run: () => download('resume.md') },
   { name: 'print resume', hint: '', run: () => window.print() },

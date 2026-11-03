@@ -1,0 +1,12 @@
+{
+  "name": "hcbille-se",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-blog.mjs",
+    "dev": "node scripts/build-blog.mjs && python3 -m http.server 8080 --bind 127.0.0.1 --directory _site"
+  },
+  "dependencies": {
+    "marked": "18.1.1"
+  }
+}

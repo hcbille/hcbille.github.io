@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <!-- Blog pages live at /blog/<name>/: keep relative paths pointing at the site root -->
+  <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HC Bille · Systems Architect</title>
   <meta name="description" content="HC Bille, Systems Architect in Stockholm. Google Workspace, identity and endpoint platforms for up to 9,000 users.">
@@ -33,21 +35,22 @@
     }
   </script>
   <link rel="me" href="https://tech.lgbt/@hcbille">
+  <link rel="alternate" type="application/rss+xml" title="HC Bille · Blog" href="/blog/feed.xml">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/cousine-400-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="vendor/webtui.css?v=21">
-  <link rel="stylesheet" href="solarized.css?v=21">
-  <link rel="stylesheet" href="style.css?v=21">
+  <link rel="stylesheet" href="vendor/webtui.css?v=22">
+  <link rel="stylesheet" href="solarized.css?v=22">
+  <link rel="stylesheet" href="style.css?v=22">
   <script>
     document.documentElement.classList.add('js');
   </script>
-  <script src="app.js?v=21" defer></script>
+  <script src="app.js?v=22" defer></script>
 </head>
 <body>
 <div class="app">
 
   <nav class="tabs" aria-label="Sections">
-    <button type="button" class="menu" id="menu" aria-label="Open command menu" aria-haspopup="dialog" aria-expanded="false" aria-controls="palette">[≡ <span id="menu-pos">1/7</span>]</button>
+    <button type="button" class="menu" id="menu" aria-label="Open command menu" aria-haspopup="dialog" aria-expanded="false" aria-controls="palette">[≡ <span id="menu-pos">1/8</span>]</button>
     <div class="tab-list">
       <a href="#overview" data-tab="overview">~ overview</a>
       <a href="#about" data-tab="about">about.md</a>
@@ -56,6 +59,7 @@
       <a href="#case-study" data-tab="case-study">case-study.md</a>
       <a href="#projects" data-tab="projects">projects.md</a>
       <a href="#skills" data-tab="skills">skills.md</a>
+      <a href="/blog/" data-tab="blog">blog.md</a>
     </div>
     <span class="spacer"></span>
     <span class="clock" id="clock" aria-label="Time in Stockholm"></span>
@@ -323,6 +327,16 @@
       <p class="tilde">~</p>
     </section>
 
+    <!-- Filled in by scripts/build-blog.mjs -->
+    <section id="blog" data-section class="doc" aria-label="Blog">
+      <!-- blog:list -->
+    </section>
+
+    <!-- One post, opened from the blog tab. Built pages arrive with it filled in; app.js fills it otherwise -->
+    <section id="post" class="doc" aria-label="Blog post">
+      <!-- blog:post -->
+    </section>
+
   </main>
 
   <!-- Bottom of the window: credits (overview only) sitting on the status line -->
@@ -333,7 +347,7 @@
     </footer>
     <div class="status">
       <span><span is-="badge" class="mode" id="mode">NORMAL</span> <span class="violet">main</span> <span id="file">overview</span></span>
-      <span class="dim"><span id="pos">[1/7]</span><span class="cmd-hint"> · press : for commands</span></span>
+      <span class="dim"><span id="pos">[1/8]</span><span class="cmd-hint"> · press : for commands</span></span>
     </div>
   </div>
 </div>
