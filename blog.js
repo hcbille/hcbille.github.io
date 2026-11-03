@@ -46,9 +46,15 @@ export function renderPost(Marked, src) {
     if (t.type === 'link' || t.type === 'image') t.href = fixHref(t.href);
   });
   // One block per "line" of the file, with a blank line between, like the other tabs
+  // HTML comments are notes to self: left out entirely, not even a blank line
+  const isComment = (t) => t.type === 'html' && /^\s*<!--[\s\S]*?-->\s*$/.test(t.raw);
   const blocks = tokens
-    .filter((t) => t.type !== 'space')
-    .map((t) => marked.parser(Object.assign([t], { links: tokens.links })).trim());
+    .filter((t) => t.type !== 'space' && !isComment(t))
+    .map((t) => {
+      const html = marked.parser(Object.assign([t], { links: tokens.links })).trim();
+      // A wrapper keeps the line number beside the table and lets wide tables scroll
+      return t.type === 'table' ? `<div class="table">${html}</div>` : html;
+    });
   const html = [
     `<h1>${esc(meta.title || 'Untitled')}</h1>`,
     meta.date ? `<p class="dim">${esc(formatDate(meta.date))}</p>` : '',

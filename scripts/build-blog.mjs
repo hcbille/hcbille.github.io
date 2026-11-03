@@ -17,7 +17,8 @@ const SKIP = new Set(['.git', '.github', '.claude', '.gitignore', 'node_modules'
 
 const posts = [];
 const drafts = new Set();
-for (const file of (await readdir(join(ROOT, 'blog'))).filter((f) => f.endsWith('.md')).sort()) {
+// Files starting with _ (like _template.md) are never built or published
+for (const file of (await readdir(join(ROOT, 'blog'))).filter((f) => f.endsWith('.md') && !f.startsWith('_')).sort()) {
   const slug = file.slice(0, -3);
   if (!/^[a-z0-9-]+$/.test(slug)) throw new Error(`blog/${file}: use lowercase letters, digits and dashes in the filename`);
   const { meta, html } = renderPost(Marked, await readFile(join(ROOT, 'blog', file), 'utf8'));
@@ -38,7 +39,11 @@ for (const entry of await readdir(ROOT)) {
   if (SKIP.has(entry)) continue;
   await cp(join(ROOT, entry), join(OUT, entry), {
     recursive: true,
-    filter: (src) => !(src.startsWith(join(ROOT, 'blog') + '/') && drafts.has(src.slice(ROOT.length + 6))),
+    filter: (src) => {
+      if (!src.startsWith(join(ROOT, 'blog') + '/')) return true;
+      const rel = src.slice(ROOT.length + 6);
+      return !rel.startsWith('_') && !drafts.has(rel);
+    },
   });
 }
 await cp(join(ROOT, 'node_modules/marked/lib/marked.esm.js'), join(OUT, 'vendor/marked.esm.js'));
