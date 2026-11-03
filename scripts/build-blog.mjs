@@ -11,7 +11,11 @@ import { esc, fixHref, formatDate, renderPost } from '../blog.js';
 const SITE = 'https://hcbille.se';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = join(ROOT, '_site');
-const SKIP = new Set(['.git', '.github', '.claude', '.gitignore', 'node_modules', '_site', 'scripts', 'package.json', 'package-lock.json']);
+// Repo files that aren't part of the published site
+const SKIP = new Set([
+  '.git', '.github', '.claude', '.gitignore', '.node-version', '.wrangler', 'node_modules', '_site', 'scripts',
+  'package.json', 'package-lock.json', 'wrangler.jsonc',
+]);
 
 /* ── Read posts ──────────────────────────────────────── */
 
