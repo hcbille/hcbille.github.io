@@ -217,6 +217,7 @@ html:not(.js) main > section + section { margin-top: 3lh; }
 .doc img { display: block; max-width: 100%; height: auto; border: 1px solid var(--box-border-color); }
 .doc > hr { border: 0; height: 1lh; }
 .doc > hr::before { content: "---"; content: "---" / ""; color: var(--foreground2); }
+.doc > .table { overflow-x: auto; }
 .doc table { border-collapse: collapse; }
 .doc th, .doc td { border: 1px solid var(--box-border-color); padding: 0 1ch; text-align: left; }
 .doc th { color: var(--foreground0); }
