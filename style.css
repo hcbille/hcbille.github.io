@@ -25,7 +25,7 @@ html, body {
   -webkit-text-size-adjust: 100%;
 }
 
-:focus-visible { outline: 1px solid var(--blue); outline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 
 a { color: var(--blue-text); text-decoration: underline; text-underline-offset: 2px; }
 a:hover { color: var(--orange-text); }
@@ -121,19 +121,14 @@ html:not(.js) main > section + section { margin-top: 3lh; }
 .logo i { font-style: normal; color: var(--foreground2); } /* drop shadow */
 .fetch .info { min-width: 0; }
 .fetch dl > div { display: flex; gap: 0; }
-.fetch dt { color: var(--blue); font-weight: var(--font-weight-bold); flex: none; }
+.fetch dt { color: var(--blue-text); font-weight: var(--font-weight-bold); flex: none; }
 .fetch dd { min-width: 0; }
 .fetch dt::after { content: ":"; color: var(--foreground1); font-weight: normal; margin-right: 1ch; }
 .fetch .who { color: var(--foreground0); }
 .fetch .who span { color: var(--foreground2); }
 .fetch .rule { color: var(--foreground2); overflow: hidden; white-space: nowrap; }
-.swatches { margin-top: 0.5lh; }
-.swatches p { display: flex; }
-.swatches i { width: 3ch; height: 1lh; background: var(--c); }
 
-/* ── Intro: who and what HC is looking for, first thing on phones ──
-   Desktop already shows this in the screenfetch box, so it's phone-only. */
-.intro { display: none; }
+/* ── Intro: who HC is and what she's looking for, first thing on every screen ── */
 .intro .cmdline { color: var(--foreground0); }
 .intro h1 { color: var(--sol-base2); }
 .intro p:last-child { color: var(--foreground0); }
@@ -299,12 +294,19 @@ html:not(.js) .status .dim { display: none; }
   /* One column: who and what first, then contact, so both are on the first screen */
   .grid { gap: 1.5lh; }
   .grid > .row { display: contents; }
-  .intro { display: block; order: -2; }
-  .contact-box { order: -1; }
+  .intro { order: -3; }
+  .contact-box { order: -2; }
+  .case-box { order: -1; }
   /* Credits scroll with the page; only the status line stays pinned */
   .bottom { display: contents; }
   .status { position: sticky; bottom: 0; z-index: 3; }
-  .prs .repo { display: none; }
+  /* Badge, number and repo on one line, then the title over two full-width lines */
+  .prs a { flex-wrap: wrap; white-space: normal; }
+  .prs .title {
+    order: 1; flex-basis: 100%;
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+  }
+  .prs li + li { margin-top: 0.5lh; }
   .fetch { flex-direction: column; gap: 1lh; }
   .logo { font-size: 11px; }
   .doc > :not(ul, ol), .doc > :is(ul, ol) > li { padding-left: 4ch; }

@@ -48,7 +48,7 @@ A systems architect who has sat on the customer side: ran Google Workspace, iden
 - `resume.md` and `resume.pdf`: full CV, the source of truth for roles, dates and numbers.
 - Case study: EasyPark → Arrive rebrand (4,500+ users, 35 countries, three weeks, no downtime), in `index.html`.
 - Open source: Crest (★1,000+, 30+ merged PRs) and Inner Dialogue (★100+, eight extensions); live PR list from GitHub.
-- Blog: `blog/hello-from-the-terminal.md`.
+- Blog: `blog/reading-nov26.md` (a reading list).
 - `og.png`, `favicon.svg`.
 - No testimonials, references or employer logos on hand. Do not invent them, or any metrics beyond those in `resume.md`.
 

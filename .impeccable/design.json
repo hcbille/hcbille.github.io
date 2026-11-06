@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-06T12:53:24.097Z",
+  "generatedAt": "2026-11-06T13:16:16.963Z",
   "title": "Design System: hcbille.se",
   "extensions": {
     "colorMeta": {
@@ -347,7 +347,7 @@
       "refersTo": "tab",
       "description": "tmux-style sticky tabs named like files.",
       "html": "<nav class=\"ds-tabs\"><a href=\"#\">~ overview</a><a href=\"#\" aria-current=\"page\">about.md</a><a href=\"#\">now.md</a><span class=\"ds-spacer\"></span><span class=\"ds-clock\">sthlm 13:50</span></nav>",
-      "css": ".ds-tabs{display:flex;align-items:center;background:#073642;font-family: var(--font-family, Cousine, ui-monospace, Menlo, monospace); font-size: 14px; line-height: 1.55;}.ds-tabs a{padding:0.25lh 1.5ch;color:#93a1a1;text-decoration:none}.ds-tabs a:hover{color:#eee8d5}.ds-tabs a:focus-visible{outline:1px solid #268bd2;outline-offset:2px}.ds-tabs a[aria-current=\"page\"]{background:#002b36;color:#eee8d5;font-weight:700}.ds-spacer{flex:1}.ds-clock{color:#42aa9f;padding:0 1.5ch}"
+      "css": ".ds-tabs{display:flex;align-items:center;background:#073642;font-family: var(--font-family, Cousine, ui-monospace, Menlo, monospace); font-size: 14px; line-height: 1.55;}.ds-tabs a{padding:0.25lh 1.5ch;color:#93a1a1;text-decoration:none}.ds-tabs a:hover{color:#eee8d5}.ds-tabs a:focus-visible{outline:2px solid #268bd2;outline-offset:2px}.ds-tabs a[aria-current=\"page\"]{background:#002b36;color:#eee8d5;font-weight:700}.ds-spacer{flex:1}.ds-clock{color:#42aa9f;padding:0 1.5ch}"
     },
     {
       "name": "Framed Box",
@@ -355,7 +355,7 @@
       "refersTo": "box",
       "description": "Overview panel with its label on the top border.",
       "html": "<div class=\"ds-box\"><a class=\"ds-label\" href=\"#\">experience.md →</a><p>Lead Systems Engineer · Arrive</p></div>",
-      "css": ".ds-box{position:relative;margin-top:1lh;border:1px solid #586e75;border-radius:3px;padding:1lh 2ch;background:#002b36;color:#839496;font-family: var(--font-family, Cousine, ui-monospace, Menlo, monospace); font-size: 14px; line-height: 1.55;}.ds-label{position:absolute;top:-0.8em;left:1.5ch;padding:0 1ch;background:#002b36;color:#b58900;text-decoration:none}.ds-label:hover{color:#d4754a}.ds-label:focus-visible{outline:1px solid #268bd2;outline-offset:2px}"
+      "css": ".ds-box{position:relative;margin-top:1lh;border:1px solid #586e75;border-radius:3px;padding:1lh 2ch;background:#002b36;color:#839496;font-family: var(--font-family, Cousine, ui-monospace, Menlo, monospace); font-size: 14px; line-height: 1.55;}.ds-label{position:absolute;top:-0.8em;left:1.5ch;padding:0 1ch;background:#002b36;color:#b58900;text-decoration:none}.ds-label:hover{color:#d4754a}.ds-label:focus-visible{outline:2px solid #268bd2;outline-offset:2px}"
     },
     {
       "name": "Document View",
@@ -395,7 +395,7 @@
       "refersTo": "blue-text",
       "description": "Underlined Link Blue, orange on hover; magenta for downloads.",
       "html": "<p class=\"ds-links\"><a href=\"#\">github.com/hcbille</a> <a class=\"ds-dl\" href=\"#\">resume.pdf ↓</a></p>",
-      "css": ".ds-links{font-family: var(--font-family, Cousine, ui-monospace, Menlo, monospace); font-size: 14px; line-height: 1.55;;background:#002b36}.ds-links a{color:#3e96d2;text-decoration:underline;text-underline-offset:2px;margin-right:2ch}.ds-links a:hover{color:#d4754a}.ds-links a:focus-visible{outline:1px solid #268bd2;outline-offset:2px}.ds-links .ds-dl{color:#db6899}"
+      "css": ".ds-links{font-family: var(--font-family, Cousine, ui-monospace, Menlo, monospace); font-size: 14px; line-height: 1.55;;background:#002b36}.ds-links a{color:#3e96d2;text-decoration:underline;text-underline-offset:2px;margin-right:2ch}.ds-links a:hover{color:#d4754a}.ds-links a:focus-visible{outline:2px solid #268bd2;outline-offset:2px}.ds-links .ds-dl{color:#db6899}"
     }
   ],
   "narrative": {
