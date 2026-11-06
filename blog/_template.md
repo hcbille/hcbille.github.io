@@ -49,7 +49,7 @@ A single line break inside a paragraph is ignored; leave an empty line to start 
 
 ### Smaller heading
 
-A [link to another site](https://github.com/hcbille), and a [link to another post](hello-from-the-terminal.md).
+A [link to another site](https://github.com/hcbille), and a [link to another post](reading-nov26.md).
 
 ## Lists
 

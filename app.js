@@ -304,8 +304,11 @@ async function cachedGitHub(key, url, pick) {
 
 /* Public pull requests: open and merged, never closed-unmerged */
 
+// Leaves out this site's own repo: housekeeping, not proof
+const OWN_REPO = 'hcbille/hcbille.github.io';
+
 const prSearch = (qualifier) =>
-  `https://api.github.com/search/issues?q=author:${GITHUB_USER}+type:pr+is:public+${qualifier}&sort=updated&order=desc&per_page=10`;
+  `https://api.github.com/search/issues?q=author:${GITHUB_USER}+type:pr+is:public+-repo:${OWN_REPO}+${qualifier}&sort=updated&order=desc&per_page=10`;
 
 const toPR = (state) => (i) => ({
   title: i.title,
@@ -331,7 +334,7 @@ async function searchPRs(qualifier) {
 }
 
 async function loadPullRequests() {
-  const key = 'prs-v5';
+  const key = 'prs-v6';
   let data;
   try { data = JSON.parse(sessionStorage.getItem(key)); } catch (e) {}
   if (!data) {

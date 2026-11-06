@@ -123,8 +123,8 @@ The one deliberate break from Solarized is the logo, banded in trans flag colour
 Canonical Solarized Dark, with a small set of accent variants lightened just enough to pass 4.5:1 text contrast.
 
 ### Primary
-- **Solarized Blue** (`blue`): focus rings, the command palette border, field names in the neofetch card. Decoration and outlines, not body links.
-- **Link Blue** (`blue-text`): every link on the main background, and the NORMAL mode badge. Lightened from Solarized Blue for contrast on base03.
+- **Solarized Blue** (`blue`): focus rings and the command palette border. Decoration and outlines, never text.
+- **Link Blue** (`blue-text`): every link on the main background, the field names in the neofetch card, and the NORMAL mode badge. Lightened from Solarized Blue for contrast on base03.
 - **Bar Blue** (`blue-bar`): the same role on the base02 bars.
 
 ### Secondary
@@ -179,11 +179,11 @@ Phones (≤760px) step the whole system to 15px. Print sets 9.5pt with a 15pt na
 
 The page is a full-height column: sticky tab bar, a centred main area (max 120ch, padding 2lh 2ch), and a sticky bottom with the credits line and the status line. With JavaScript, one section shows at a time, like switching tabs. Without it, all sections stack with 3lh between them.
 
-The overview is a grid of framed boxes with 2lh between rows; paired rows split 1.25fr / 1fr with a 3ch column gap. Documents (experience, about, blog posts) run in a single column up to 90ch with a 5ch line-number gutter.
+The overview opens with the intro, then a grid of framed boxes with 2lh between rows: the neofetch card and the case-study box full width, then paired rows that split 1.25fr / 1fr with a 3ch column gap. Documents (experience, about, blog posts) run in a single column up to 90ch with a 5ch line-number gutter.
 
 Rhythm runs in line heights: 0.5lh between list items and small blocks, 1lh inside boxes, 2lh between sections. Horizontal space runs in characters: 1ch, 1.5ch, 2ch, 3ch, 4ch.
 
-**Phones (≤760px):** tabs become one row that scrolls sideways, and the clock and spacer drop out. The grid collapses to one column, with the who-and-what intro and the contact box first so both fit on the first screen. Credits scroll with the page; only the status line stays pinned. The gutter shrinks to 4ch, and PR rows drop the repo name.
+**Phones (≤760px):** tabs become one row that scrolls sideways, and the clock and spacer drop out. The grid collapses to one column in this order: the who-and-what intro, the contact box, the case-study box, then the rest. Credits scroll with the page; only the status line stays pinned. The gutter shrinks to 4ch. PR rows put the badge, number and repo on one line and the title below it, full width and clamped to two lines.
 
 **Print:** a plain black-on-white A4 resume (14mm × 16mm margins). Chrome, overview, now, case study and blog are hidden; line numbers and markdown marks go away.
 
@@ -213,7 +213,7 @@ Every component looks drawn in a character grid: 1px rules, labels on borders, f
 ### Framed Box
 - **Corner Style:** 3px; 1px Slate Grey border; padding 1lh 2ch.
 - **Label:** Solarized Yellow text on the top-left border, 1ch padding, base03 cut-out. A label can link to its full tab (`about.md →`); it turns orange on hover.
-- **Use:** overview panels only (about, experience, contact, now, projects).
+- **Use:** overview panels only (about, case study, experience, contact, now, projects).
 
 ### Document View
 - **Style:** a markdown file with a right-aligned line-number gutter (3ch numbers in a 5ch gutter, base01).
@@ -236,13 +236,17 @@ Every component looks drawn in a character grid: 1px rules, labels on borders, f
 
 ### Links
 - **Style:** Link Blue, underlined with a 2px offset. Hover turns Burnt Orange. Resume downloads are Soft Magenta, with a `↓` mark.
-- **PR rows:** one line each; the title truncates with `…` so the repo name always shows; no underline, orange on hover.
+- **Names as links:** company and project names on the overview (Arrive, Instabee, Klarna, crest, inner-dialogue) stay Solarized Cyan, underlined, and turn orange on hover. Doc headings that link inherit their heading colour.
+- **PR rows:** one line each on desktop; the title truncates with `…` so the repo name always shows; no underline, orange on hover. Phones use two-line titles (see Layout).
 
 ### Neofetch Card (signature)
-The overview's `about.md` box: the banded trans-flag ASCII logo with a base01 character shadow beside a `root@hcbille` key/value list (blue bold keys, `:` separator, Body Grey values), a character rule, and two rows of Solarized swatches drawn as 3ch × 1lh blocks. It is the site's most recognisable element.
+The overview's `about.md` box: the banded trans-flag ASCII logo with a base01 character shadow beside a `root@hcbille` key/value list (Link Blue bold keys, `:` separator, Body Grey values; the Uptime value is Link Blue too) under a character rule (Name, Pronouns, Role, Host, Location, Uptime, Users, Packages, Theme), then two rows of Solarized swatches drawn as 3ch × 1lh blocks: the site's accent colours on top, the greys from dark to light below. It is the site's most recognisable element.
+
+### Intro
+The overview opens, at every width, with a `$ whoami` command line, the page's only `h1` (`HC Bille · Systems Architect`, Parchment and cyan) and a yellow `looking for:` line. It sits above the neofetch card with no box around it.
 
 ### Focus
-All interactive elements get a 1px Solarized Blue outline with a 2px offset on `:focus-visible`. Sections and headings that receive programmatic focus on tab change show no outline.
+All interactive elements get a 2px Solarized Blue outline with a 2px offset on `:focus-visible`. Sections and headings that receive programmatic focus on tab change show no outline.
 
 ## Do's and Don'ts
 
