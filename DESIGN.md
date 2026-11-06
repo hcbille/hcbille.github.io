@@ -236,10 +236,11 @@ Every component looks drawn in a character grid: 1px rules, labels on borders, f
 
 ### Links
 - **Style:** Link Blue, underlined with a 2px offset. Hover turns Burnt Orange. Resume downloads are Soft Magenta, with a `↓` mark.
+- **Names as links:** company and project names on the overview (Arrive, Instabee, Klarna, crest, inner-dialogue) stay Solarized Cyan, underlined, and turn orange on hover. Doc headings that link inherit their heading colour.
 - **PR rows:** one line each on desktop; the title truncates with `…` so the repo name always shows; no underline, orange on hover. Phones use two-line titles (see Layout).
 
 ### Neofetch Card (signature)
-The overview's `about.md` box: the banded trans-flag ASCII logo with a base01 character shadow beside a `root@hcbille` key/value list (Link Blue bold keys, `:` separator, Body Grey values) under a character rule. The fields keep the neofetch idiom but carry the pitch: Name, Pronouns, Role, Host, Location, Uptime, Users, then `Looking for` and `Proof`. No theme details or colour swatches: the card's space goes to HC, not the setup. It is the site's most recognisable element.
+The overview's `about.md` box: the banded trans-flag ASCII logo with a base01 character shadow beside a `root@hcbille` key/value list (Link Blue bold keys, `:` separator, Body Grey values; the Uptime value is Link Blue too) under a character rule (Name, Pronouns, Role, Host, Location, Uptime, Users, Packages, Theme), then two rows of Solarized swatches drawn as 3ch × 1lh blocks: the site's accent colours on top, the greys from dark to light below. It is the site's most recognisable element.
 
 ### Intro
 The overview opens, at every width, with a `$ whoami` command line, the page's only `h1` (`HC Bille · Systems Architect`, Parchment and cyan) and a yellow `looking for:` line. It sits above the neofetch card with no box around it.

@@ -123,10 +123,14 @@ html:not(.js) main > section + section { margin-top: 3lh; }
 .fetch dl > div { display: flex; gap: 0; }
 .fetch dt { color: var(--blue-text); font-weight: var(--font-weight-bold); flex: none; }
 .fetch dd { min-width: 0; }
+.fetch .uptime { color: var(--blue-text); }
 .fetch dt::after { content: ":"; color: var(--foreground1); font-weight: normal; margin-right: 1ch; }
 .fetch .who { color: var(--foreground0); }
 .fetch .who span { color: var(--foreground2); }
 .fetch .rule { color: var(--foreground2); overflow: hidden; white-space: nowrap; }
+.swatches { margin-top: 0.5lh; }
+.swatches p { display: flex; }
+.swatches i { width: 3ch; height: 1lh; background: var(--c); }
 
 /* ── Intro: who HC is and what she's looking for, first thing on every screen ── */
 .intro .cmdline { color: var(--foreground0); }
